@@ -1,0 +1,89 @@
+package infs2605.assignment;
+
+import java.util.Vector;
+
+public class Member {
+
+    private String lastMatchDate;
+    private Vector offerList;
+    private Vector seekList;
+    private Vector payment;
+    private int commissionRate;
+    private CorporateMember corporateMem; //TBC
+    private membershipPayment membershipPay; //TBC
+    private String creditCard;
+    private String accountExpiry;
+    private String accountOwnerName;
+    private String paymentMedia;
+    private String password;
+    private static int setOfferListCount;
+    private static int setSeekListCount;
+    private static int paymentCount;
+
+    public String getLastMatchDate() {
+        return lastMatchDate;
+    }
+    public void setLastMatchDate(String lastMatchDate) {
+        this.lastMatchDate = lastMatchDate;
+    }
+    public String getOfferList() {
+        return offerList.toString();
+    }
+    public void setOfferList(String newValue) {
+        this.offerList.add(setOfferListCount);
+        this.offerList.set(setOfferListCount,newValue);
+        setOfferListCount += 1;
+    }
+    public String getSeekList()  {
+        return seekList.toString();
+    }
+    public void setSeekList(String newValue) {
+        this.seekList.add(setSeekListCount);
+        this.seekList.set(setSeekListCount,newValue);
+        setSeekListCount += 1;
+    }
+    public String getPayment()  {
+        return payment.toString();
+    }
+    public void setPayment(String newValue) {
+        this.payment.add(paymentCount);
+        this.payment.set(paymentCount,newValue);
+        paymentCount += 1;
+    }
+    public int getCommissionRate() {
+        return commissionRate;
+    }
+    public void setCommissionRate(int newValue) {
+        this.commissionRate = newValue;
+    }
+    public String getCreditCard() {
+        return creditCard;
+    }
+    public void setCreditCard(String newValue) {
+        this.creditCard = newValue;
+    }
+    public String getAccountExpiry() {
+        return accountExpiry;
+    }
+    public void setAccountExpiry(String newValue) {
+        this.accountExpiry = newValue;
+    }
+    public String getAccountOwnerName() {
+        return accountOwnerName;
+    }
+    public void setAccountOwnerName(String newValue) {
+        this.accountOwnerName = newValue;
+    }
+    public String getPaymentMedia() {
+        return paymentMedia;
+    }
+    public void setPaymentMedia(String newValue) {
+        this.paymentMedia = newValue;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassport(String newValue) {
+        this.password = newValue;
+    }
+}
