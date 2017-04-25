@@ -1,0 +1,4 @@
+package infs2605.assignment;
+
+public class CorporateMember extends Member {
+}
