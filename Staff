@@ -1,0 +1,17 @@
+package infs2605.assignment;
+
+//INFS2608 Assignment
+
+public class Staff {
+    private String password;
+    
+    Staff() {
+        password = "DefaultPassword123";
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String newValue) {
+        this.password = newValue;
+    }    
+}
