@@ -1,0 +1,55 @@
+package infs2605.assignment; //ONLY POTENTIAL BUILT
+
+import java.util.Scanner;
+
+//INFS2608 Assignment
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to Suber! What type of user are you? (To be validated moving forward): Choose Staff, Member, or Potential");
+        String userType = input.next();
+        String accountName = "new";
+        long accountList = 1;
+        if (userType.equalsIgnoreCase("Potential")) {
+            User newPotential = new User();
+            System.out.print("What is your user type? 1 = Consumer; 2 = Corpoate");
+            newPotential.setUserType(input.nextInt());
+            System.out.print("What is your name? ");
+            newPotential.setName(input.next());
+            if (newPotential.getUserType() == 1) {
+                System.out.print("What is your Gender? (We don't assume so please leave this blank as you wish");
+                newPotential.setGender(input.next());
+                System.out.print("What is your home address? ");
+                newPotential.setHomeAddr(input.next());
+                System.out.print("Postcode?");
+                newPotential.setHomePCode(input.nextLong());
+                System.out.print("What is your home phone number?");
+                newPotential.setHomeNum(input.nextLong());
+                System.out.print("Do you have a vehicle to offer? Y/N");
+                if (input.next().equalsIgnoreCase("Y")) {
+                    String vehicleYes = "Y";//WIP
+                    while (vehicleYes.equalsIgnoreCase("Y")) {
+                        System.out.print("Vehicle Plate Number: ");
+                        newPotential.setVehicle(input.next());
+                        System.out.print("Any more vehicles?");
+                        vehicleYes = input.next();
+                    }
+                }
+
+            }
+            if (newPotential.getUserType() == 2) {
+                System.out.print("What is your business address? ");
+                newPotential.setCompAddr(input.next());
+                System.out.print("Postcode?");
+                newPotential.setCompanyPCode(input.nextLong());
+                System.out.print("What is your business contact number?");
+                newPotential.setCompanyNum(input.nextLong());
+                System.out.println("Company email?");
+                newPotential.setEmail(input.next());
+
+            }
+
+        }
+
+    }
