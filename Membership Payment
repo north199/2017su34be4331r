@@ -1,0 +1,44 @@
+package infs2605.assignment;
+
+//INFS2608 Assignment
+
+public class membershipPayment {
+
+    private String status;
+    private String lastMatch;
+    private String nextExpiry;
+    private int durationToExpiry;
+    private int refundFlag;
+
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String newValue) {
+        this.status = newValue;
+    }
+    public String getLastMatch() {
+        return lastMatch;
+    }
+    public void setLastMatch(String newValue) {
+        this.lastMatch = newValue;
+    }
+    public String getNextExpiry() {
+        return nextExpiry;
+    }
+    public void setNextExpiry(String newValue) {
+        this.nextExpiry = newValue;
+    }
+    public int getDurtaionToExpiry() {
+        return durationToExpiry;
+    }
+    public void setDurationToExpiry(int newValue) {
+        this.durationToExpiry = newValue;
+    }
+    public int getRefundFlag() {
+        return refundFlag;
+    }
+    public void setRefundFlag(int newValue) {
+        this.refundFlag = newValue;
+    }
+    
+}
