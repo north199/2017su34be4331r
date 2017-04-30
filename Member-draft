@@ -1,5 +1,7 @@
 package infs2605.assignment;
 
+//INFS2608 Assignment
+
 import java.util.Vector;
 
 public class Member {
@@ -9,8 +11,8 @@ public class Member {
     private Vector seekList;
     private Vector payment;
     private int commissionRate;
-    private CorporateMember corporateMem; //TBC
-    private membershipPayment membershipPay; //TBC
+    private CorporateMember corporateMem;
+    private membershipPayment membershipPay;
     private String creditCard;
     private String accountExpiry;
     private String accountOwnerName;
@@ -83,7 +85,7 @@ public class Member {
     public String getPassword() {
         return password;
     }
-    public void setPassport(String newValue) {
+    public void setPassword(String newValue) {
         this.password = newValue;
     }
 }
