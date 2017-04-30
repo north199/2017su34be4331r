@@ -1,0 +1,50 @@
+package infs2605.assignment;
+
+import java.util.Calendar;
+import java.util.Date;
+
+//INFS2608 Assignment
+
+public class Consultation {
+
+    //basic data types
+    private int consultantNum;
+    private float price;
+    private final String createdDate;
+
+    //no-arg constructor (createdDate becomes current date as per system
+    Consultation() {
+        Date dateToString = Calendar.getInstance().getTime();
+        consultantNum = 999;
+        price = 99999;
+        createdDate = dateToString.toString();
+    }
+
+    //constructor
+    Consultation(int consultantNum, float price) {
+        Date dateToString = Calendar.getInstance().getTime();
+        this.consultantNum = consultantNum;
+        this.price = price;
+        createdDate = dateToString.toString();
+    }
+
+    public int getConsultantNum() {
+        return consultantNum;
+    }
+
+    public void setConsultantNum(int newValue) {
+        this.consultantNum = newValue;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float newValue) {
+        this.price = newValue;
+    }
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+}
