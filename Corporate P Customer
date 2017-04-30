@@ -1,0 +1,8 @@
+package infs2605.assignment;
+
+//INFS2608 Assignment
+
+public class CorporatePCustomer extends Corporate {
+    private Consultation consultation;
+    
+}
