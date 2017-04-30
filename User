@@ -1,0 +1,104 @@
+package infs2605.assignment;
+
+//INFS2608 Assignment
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class User {
+
+    private int ID;
+    private String name;
+    private int userType; //1-Staff; 2-Member
+    private String gender;
+    private int age;
+    private String homeAddr;
+    private String compAddr;
+    private long homePCode;
+    private long companyPCode;
+    private long homeNum;
+    private long companyNum;
+    private String email;
+    private String vehicle;
+    private static int countID;
+
+    User() {
+        countID++;
+        this.ID = countID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String newValue) {
+        this.name = newValue;
+    }
+
+    public int getUserType() {
+        return userType;
+    }
+    public void setUserType(int newValue) {
+        this.userType = newValue;
+    }
+    public String getGender() {
+        return gender;
+    }
+    public void setGender(String newValue) {
+        this.gender = newValue;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int newValue) {//to be updated to convert DOB to Age
+        this.age = newValue;
+    }
+    public String getHomeAddr() {
+        return homeAddr;
+    }
+    public void setHomeAddr(String newValue) {
+        this.homeAddr = newValue;
+    }
+    public String getCompAddr() {
+        return compAddr;
+    }
+    public void setCompAddr(String newValue) {
+        this.compAddr = newValue;
+    }
+    public long getHomePCode() {
+        return homePCode;
+    }
+    public void setHomePCode(long newValue) {
+        this.homePCode = newValue;
+    }
+    public long getCompanyPCode() {
+        return companyPCode;
+    }
+    public void setCompanyPCode(long newValue) {
+        this.companyPCode = newValue;
+    }
+    public long getHomeNum() {
+        return homeNum;
+    }
+    public void setHomeNum(long newValue) {
+        this.homeNum = newValue;
+    }
+    public long getCompanyNum() {
+        return companyNum;
+    }
+    public void setCompanyNum(long newValue) {
+        this.companyNum = newValue;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String newValue) {
+        this.email = newValue;
+    }
+    public String getVehicle() {
+        return vehicle;
+    }
+    public void setVehicle(String newValue) {
+        this.vehicle = newValue;
+    }
+}
