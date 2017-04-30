@@ -1,0 +1,65 @@
+package infs2605.assignment;
+
+//INFS2608 Assignment
+
+public class Corporate {
+    
+    private int ID;
+    private String companyName;
+    private String companyAddr;
+    private long companyPhoneNum;
+    private long companyPCode;
+    private int customerType;
+    private static int countID;
+    Corporate() {
+        this.ID = 0;
+        this.companyName = "(Company Name)";
+        this.companyAddr = "(Company Address)";
+        this.companyPhoneNum = 99999999;
+        this.companyPCode = 9999;
+        this.customerType = 999;
+    }
+    Corporate(String companyName, String companyAddr, long companyPhoneNum, long companyPCode, int customerType) {
+        countID++;
+        this.ID = countID;
+        this.companyName = companyName;
+        this.companyAddr = companyAddr;
+        this.companyPhoneNum = companyPhoneNum;
+        this.companyPCode = companyPCode;
+        this.customerType = customerType; 
+    }
+    public int getId() {
+        return ID;
+    }
+    public String getCompanyName() {
+        return companyName;
+    }
+    public void setCompanyName(String newValue) {
+        this.companyName = newValue;
+    }
+    public String getCompanyAddr() {
+        return companyAddr;
+    }
+    public void setCompanyAddr(String newValue) {
+        this.companyAddr = newValue;
+    }
+    public long getCompanyPhoneNum() {
+        return companyPhoneNum;
+    }
+    public void setCompanyPhoneNum(long newValue) {
+        this.companyPhoneNum = newValue;
+    }
+    public long getCompanyPCode() {
+        return companyPCode;
+    }
+    public void setCompanyPCode(long newValue) {
+        this.companyPCode = newValue;
+    }
+    public int getCustomerType() {
+        return customerType;
+    }
+    public void setCustomerType(int newValue) {
+        this.customerType = newValue;
+    }
+    
+}
