@@ -1,4 +1,10 @@
 package infs2605.assignment;
 
-public class CorporateMember extends Member {
+//INFS2608 Assignment
+
+public class CorporateMember extends Corporate {
+    
+    CorporateMember() {
+        
+    }
 }
