@@ -15,16 +15,20 @@ import java.sql.*;
 public class TestConnection {
     
     public static void main(String[] args) {
+        // Initialize server config
         ServerConfig config = new ServerConfig();
 
         try {
+            // Import MySQL driver and attempt to connect to DB
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://" + config.getHost() + ":3306/" + config.getDB(), config.getUser(), config.getPass());
 
             Statement stmt = con.createStatement();
             
+            // Execute a test statement
             ResultSet rs = stmt.executeQuery("SELECT * FROM " + config.getDB() + ".test;");
+            // Output results
             while (rs.next()) {
                 System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
             }
