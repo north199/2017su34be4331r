@@ -20,7 +20,7 @@ public class TestConnection {
         try {
             ResultSet results = db.executeQuery("SELECT * FROM test;");
             while (results.next()) {
-                System.out.println(results.getInt(1) + "  " + results.getString(2) + "  " + results.getString(3));
+                System.out.println(results.getInt(1) + "  " + results.getString(2) + "  " + results.getString(3) + "  " + results.getString(4));
             }
         } catch (Exception e) {
             System.out.println(e);
