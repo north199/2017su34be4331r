@@ -17,10 +17,16 @@ public class TestConnection {
     public static void main(String[] args) {
         // Initialize server config
         SuberDB db = new SuberDB();
+
         try {
             ResultSet results = db.executeQuery("SELECT * FROM test;");
             while (results.next()) {
-                System.out.println(results.getInt(1) + "  " + results.getString(2) + "  " + results.getString(3) + "  " + results.getString(4));
+                String firstName = results.getString(2);
+                String lastName = results.getString(3);
+                String email = results.getString(4);
+                System.out.println("Firstname:" + firstName);
+                System.out.println("Lastname:" + lastName);
+                System.out.println("Email:" + email);
             }
         } catch (Exception e) {
             System.out.println(e);

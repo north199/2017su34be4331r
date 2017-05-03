@@ -6,22 +6,26 @@
  */
 package suber.backend;
 
-
 import java.sql.*;
 
 /**
- * 
+ * This class will provide easy access to the database of the app
+ *
  * @author Andrew
  */
 public class SuberDB {
+
     ServerConfig config;
     Connection con;
     Statement stmt;
-    
+
+    /**
+     * Initialises MySQL db connection
+     */
     public SuberDB() {
         config = new ServerConfig();
         try {
-            // Import MySQL driver and attempt to connect to DB
+            // Import MySQL driver and attempt to connect to DB via jdbc
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(
                     "jdbc:mysql://" + config.getHost() + ":3306/" + config.getDB(), config.getUser(), config.getPass());
@@ -30,7 +34,13 @@ public class SuberDB {
             System.out.println(e);
         }
     }
-    
+
+    /**
+     * Provides an easy function for executing MySQL queries
+     *
+     * @param query The MySQL query to execute
+     * @return Returns results of query as ResultSet
+     */
     public ResultSet executeQuery(String query) {
         try {
             // Execute query
@@ -40,7 +50,19 @@ public class SuberDB {
             return null;
         }
     }
-    
+
+    /**
+     * Function to get current database
+     *
+     * @return The current database as a string
+     */
+    public String getDatabaseName() {
+        return config.getDB();
+    }
+
+    /**
+     * Terminates current database connection
+     */
     public void closeConnection() {
         try {
             con.close();
@@ -48,5 +70,5 @@ public class SuberDB {
             System.out.println(e);
         }
     }
-    
+
 }
