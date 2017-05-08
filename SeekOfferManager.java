@@ -41,6 +41,7 @@ public class SeekOfferManager {
 
     }
 
+    //displays all carSeek (carSeek arraylist)
     public ArrayList<String> DisplayAllCarSeek() {
         ArrayList<String> list = new ArrayList<String>();
         for (int i = 0; i < CarSeekList.size(); i++) {
@@ -50,7 +51,7 @@ public class SeekOfferManager {
         }
         return list;
     }
-
+//displays all carOffer (carOffer arraylist)
     public ArrayList<String> DisplayAllCarOffer() {
         ArrayList<String> list = new ArrayList<String>();
         for (CarOffer i : CarOfferList) {
@@ -59,10 +60,10 @@ public class SeekOfferManager {
         }
         return list;
     }
-
+    
+//find function - finds all carOffer (from carOfferList arraylist) that has matching postcodes with all carSeek (from carSeekList arraylist)
     public ArrayList<String> findMatchByPostCode() {
         ArrayList<String> matchesFoundCarOffer = new ArrayList<String>();
-
         for (CarSeek x : CarSeekList) {
             String postCodeTemp = x.getDestinationPostCode();
             for (CarOffer y : CarOfferList) {
@@ -75,6 +76,7 @@ public class SeekOfferManager {
         return matchesFoundCarOffer;
     }
 
+    //find function - finds all carOffer (from carOfferList arraylist) that has the specified postcode
     public ArrayList<String> findMatchBySinglePostCode(String postCode) {
         ArrayList<String> matchesFoundCarOffer = new ArrayList<String>();
 
@@ -89,33 +91,36 @@ public class SeekOfferManager {
 
     }
 
+    //add function - adds a carOffer to carOfferList
     public boolean addCarOffer(int carOfferID, int quota, double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime, int numOfPassengers, String carType) {
-
+    //checks for logic error by checking if startinf and destination postcode are the same then returns false and a error message
         if (startingPostCode == destinationPostCode) {
             System.out.println("Starting postcode and destination postcode are the same");
             return false;
-
+    //checks for logic error - postcode length not being of length 4 returns false and a error message
         }
 
         if (startingPostCode.length() != 4) {
             System.out.println("Invalid postcode length");
             return false;
         }
-        
+    //checks for logic error - price being equal to or lower than zero returns false and a error message
         if (price <= 0){
             System.out.println("Invalid price");
             return false;
         }
+   //if no logic errors have occured, return true and add the carOffer to the carOfferList     
         CarOfferList.add(new CarOffer(carOfferID, quota, price, currentPostCode, startingPostCode, destinationPostCode, travelTime, pickupTime, dropOffTime, numOfPassengers, carType));
         return true;
 
     }
-
+    
+    //add function - adds carSeek to carSeekList
     public void addCarSeek(int carSeekID, Member ownerMember, String pickupTime, String destinationPostCode, String currentPostCode, int numOfPassengers) {
         CarSeekList.add(new CarSeek(carSeekID, ownerMember, pickupTime, destinationPostCode, currentPostCode, numOfPassengers));
 
     }
-
+    //remove function - removes carOffer from carOfferList 
     public boolean removeCarOffer(int carOfferID) {
         try {
             for (int i = 0; i < CarOfferList.size(); i++) {
@@ -131,7 +136,7 @@ public class SeekOfferManager {
         }
         return false;
     }
-
+//remove function - removes carSeek from carSeekList
     public boolean removeCarSeek(int carSeekID) {
         try {
             for (int i = 0; i < CarSeekList.size(); i++) {
@@ -157,6 +162,7 @@ public class SeekOfferManager {
 
     }
 
+    //edit function - edits carOffer from carOfferList
     public void editCarOffer(int carOfferID, int quota, double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime, int numOfPassengers, String carType) {
         for (int i = 0; i < CarOfferList.size(); i++) {
             if (CarOfferList.get(i).getCarOfferID() == carOfferID) {
@@ -174,6 +180,7 @@ public class SeekOfferManager {
         }
     }
 
+    //edit function - edits carSeek from carSeekList
     public void editCarSeek(int carSeekID, Member ownerMember, String pickupTime, String destinationPostCode, String currentPostCode, int numOfPassengers) {
         for (int i = 0; i < CarSeekList.size(); i++) {
             if (CarSeekList.get(i).getCarSeekID() == carSeekID) {
