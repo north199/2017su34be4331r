@@ -6,50 +6,65 @@
  */
 package suber.backend.security;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.security.*;
 import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
+import sun.misc.*;
+
 /**
  *
- * @author Andrew
+ * @author Andrew Originally built by FARHAN KHWAJA and released for open source.
+ * The code has been modified for increased security and code reuse.
  */
 public class Crypto {
-    
-    Cipher aesCipher;
 
-    public static void main(String[] args) throws Exception {
-        //String FileName = "encryptedtext.txt";
-        //String FileName2 = "decryptedtext.txt";
+    // Neccessary imports
+    private static final String encryptionAlgorithm = "AES";
+    private static final byte[] keyValue
+            = new byte[]{'S', 'u', 'b', 'e', 'r', '2', '6', '0', '5', '=', '=', '=', '=', '=', '=', '='};
 
-        KeyGenerator KeyGen = KeyGenerator.getInstance("AES");
-        KeyGen.init(128);
-
-        SecretKey SecKey = KeyGen.generateKey();
-
-        Cipher AesCipher = Cipher.getInstance("AES");
-
-        byte[] byteText = "Test".getBytes();
-
-        AesCipher.init(Cipher.ENCRYPT_MODE, SecKey);
-        byte[] byteCipherText = AesCipher.doFinal(byteText);
-        
-        
-        System.out.println("Encrypted " + byteCipherText.toString());
-        
-        byte[] cipherText = byteText;
-        AesCipher.init(Cipher.DECRYPT_MODE, SecKey);
-        byte[] bytePlainText = AesCipher.doFinal(cipherText);
-        
-        System.out.println("Decrypted " + bytePlainText.toString());
-        /**Files.write(Paths.get(FileName), byteCipherText);
-
-        byte[] cipherText = Files.readAllBytes(Paths.get(FileName));
-
-        AesCipher.init(Cipher.DECRYPT_MODE, SecKey);
-        byte[] bytePlainText = AesCipher.doFinal(cipherText);
-        Files.write(Paths.get(FileName2), bytePlainText);
-        **/
-        
+    /**
+     * Function to AES encrypt input
+     *
+     * @param unencryptedData String to encrypt
+     * @return base 64 encoded AES-encrypted string
+     * @throws Exception
+     */
+    public static String encryptString(String unencryptedData) throws Exception {
+        Key key = generateKey();
+        Cipher cipher = Cipher.getInstance(encryptionAlgorithm);
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        byte[] encVal = cipher.doFinal(unencryptedData.getBytes());
+        String encryptedValue = new BASE64Encoder().encode(encVal);
+        return encryptedValue;
     }
-    
+
+    /**
+     * Function to decrypt AES encrypted input
+     *
+     * @param encryptedData encrypted and encoded base64 string
+     * @return decrypted and decoded data
+     * @throws Exception
+     */
+    public static String decryptString(String encryptedData) throws Exception {
+        Key key = generateKey();
+        Cipher cipher = Cipher.getInstance(encryptionAlgorithm);
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        byte[] decordedValue = new BASE64Decoder().decodeBuffer(encryptedData);
+        byte[] decValue = cipher.doFinal(decordedValue);
+        String decryptedValue = new String(decValue);
+        return decryptedValue;
+    }
+
+    /**
+     * Function to generate a new unique algorithm to ensure security
+     *
+     * @return new key
+     * @throws Exception
+     */
+    private static Key generateKey() throws Exception {
+        Key key = new SecretKeySpec(keyValue, encryptionAlgorithm);
+        return key;
+    }
+
 }

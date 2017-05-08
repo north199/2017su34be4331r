@@ -22,7 +22,7 @@ public class SuberDB {
     /**
      * Initialises MySQL db connection
      */
-    public SuberDB() {
+    public SuberDB() throws Exception {
         config = new ServerConfig();
         try {
             // Import MySQL driver and attempt to connect to DB via jdbc

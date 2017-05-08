@@ -6,6 +6,8 @@
  */
 package suber.backend;
 
+import suber.backend.security.Crypto;
+
 /**
  * This class stores the MySQL DB details for retrieval in connection
  *
@@ -21,11 +23,11 @@ public class ServerConfig {
     /**
      * Initialises database variables
      */
-    public ServerConfig() {
-        this.host = "216.172.184.208";
-        this.user = "ab66986_suber";
-        this.pass = "(VCm*Bu6dl*3";
-        this.dbName = "ab66986_suber";
+    public ServerConfig() throws Exception {
+        this.host = Crypto.decryptString("QFILuExmvOO8bvKO16w/1w==");
+        this.user = Crypto.decryptString("4A+VTJZbIwzLIc0US1j+qg==");
+        this.pass = Crypto.decryptString("5Lc+OsDVgxo1hrLgQZsEew==");
+        this.dbName = Crypto.decryptString("4A+VTJZbIwzLIc0US1j+qg==");
     }
 
     /**
