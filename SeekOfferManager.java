@@ -1,3 +1,5 @@
+//Manager class for dummy data + edit/remove/etc... functions
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,10 +20,8 @@ public class SeekOfferManager {
 
     public void LoadListFromDataBase() {
         Date date = new Date();
+        //Dummy Variables for CarOfferList (Quota/Price/CurrentPC/StartingPC/DestinationPC/TravelTime/PickupTime/DropOffTime/CarType)
         
-        
-        
-        //Dummy Variables for CarOfferList (Quota/Price/CurrentPC/StartingPC/DestinationPC/TravelTime/PickupTime/DropOffTime)
         /*CarOfferList.add(new CarOffer(1, 200, 100, "2033", "2033", "2056", "2", date, "10", 2, "Four wheel drive"));
         CarOfferList.add(new CarOffer(2, 300, 100, "2033", "2033", "2088", "2", "1", "3", 3, "Van"));
         CarOfferList.add(new CarOffer(3, 400, 100, "2044", "2044", "2056", "2", "5", "11", 3, "Motorcycle"));
