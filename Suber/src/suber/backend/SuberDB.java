@@ -22,9 +22,9 @@ public class SuberDB {
     /**
      * Initialises MySQL db connection
      */
-    public SuberDB() throws Exception {
-        config = new ServerConfig();
+    public SuberDB() {
         try {
+            config = new ServerConfig();
             // Import MySQL driver and attempt to connect to DB via jdbc
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(
