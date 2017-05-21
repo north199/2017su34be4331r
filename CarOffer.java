@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package assignment1carseek;
-import java.util.*;
+
+import java.util.Date;
+
 /**
  *
  * @author adimt460a
@@ -12,18 +14,16 @@ import java.util.*;
 public class CarOffer {
 
     int carOfferID;
-    int quota;
-    double price;
+    Double quota;
+    Double price;
     String currentPostCode;
     String startingPostCode;
     String destinationPostCode;
     String travelTime;
     Date pickupTime;
     Date dropOffTime;
-    int numOfPassengers;
-    String carType;
 
-    public CarOffer(int carOfferID, int quota, double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime, int numOfPassengers, String carType) {
+    public CarOffer(int carOfferID, Double quota, Double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime) {
         this.carOfferID = carOfferID;
         this.quota = quota;
         this.price = price;
@@ -33,10 +33,8 @@ public class CarOffer {
         this.travelTime = travelTime;
         this.pickupTime = pickupTime;
         this.dropOffTime = dropOffTime;
-        this.numOfPassengers = numOfPassengers;
-        this.carType = carType;
     }
-    
+
     public int getCarOfferID()
     {
         return carOfferID;
@@ -96,40 +94,20 @@ public class CarOffer {
         this.dropOffTime = dropOffTime;
     }
 
-    public int getQuota() {
+    public Double getQuota() {
         return quota;
     }
 
-    public void setQuota(int quota) {
+    public void setQuota(Double quota) {
         this.quota = quota;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
 
-    }
-    
-        public int getNumOfPassengers()
-    {
-        return numOfPassengers;
-    }
-    
-    public void setNumOfPassengers(int numOfPassengers)
-    {
-        this.numOfPassengers = numOfPassengers;
-    }
-    
-    public String getCarType()
-    {
-        return carType;
-    }
-    
-    public void setCarType(String carType)
-    {
-        this.carType = carType;
     }
 }

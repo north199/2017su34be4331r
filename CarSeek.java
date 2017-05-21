@@ -5,6 +5,8 @@
  */
 package assignment1carseek;
 
+import java.util.Date;
+
 /**
  *
  * @author adimt460a
@@ -12,23 +14,21 @@ package assignment1carseek;
 public class CarSeek {
     
     int carSeekID;
+   
     Member ownerMember = null;
-    String pickupTime;
+    Date pickupTime;
     
     String startingPostCode;
     String destinationPostCode;
     String currentPostCode;
-    int numOfPassengers = 0;
     
-    public CarSeek(int carSeekID, Member ownerMember, String pickupTime, String destinationPostCode, String currentPostCode, int numOfPassengers){
+    public CarSeek( int carSeekID, Member ownerMember, Date pickupTime, String destinationPostCode, String currentPostCode){
         this.carSeekID = carSeekID;
         this.ownerMember = ownerMember;
         this.pickupTime = pickupTime;
         this.startingPostCode = startingPostCode;
         this.destinationPostCode = destinationPostCode;
         this.currentPostCode = currentPostCode;
-        this.numOfPassengers = numOfPassengers;
-        
     }
     
     public int getCarSeekID()
@@ -41,12 +41,12 @@ public class CarSeek {
         this.carSeekID = carSeekID;
     }
     
-    public String getPickupTime()
+    public Date getPickupTime()
     {
         return pickupTime;
     }
     
-    public void setPickupTime(String pickupTime)
+    public void setPickupTime(Date pickupTime)
     {
         this.pickupTime = pickupTime;
     }
@@ -82,15 +82,6 @@ public class CarSeek {
         this.destinationPostCode = destinationPostCode;
     }
     
-    public int getNumOfPassengers()
-    {
-        return numOfPassengers;
-    }
-    
-    public void setNumOfPassengers(int numOfPassengers)
-    {
-        this.numOfPassengers = numOfPassengers;
-    }
     
     
 }

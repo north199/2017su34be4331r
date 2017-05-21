@@ -1,5 +1,3 @@
-//Manager class for dummy data + edit/remove/etc... functions
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,23 +15,22 @@ public class SeekOfferManager {
 
     ArrayList<CarOffer> CarOfferList = new ArrayList<CarOffer>();
     ArrayList<CarSeek> CarSeekList = new ArrayList<CarSeek>();
+  
 
     public void LoadListFromDataBase() {
-        Date date = new Date();
-        //Dummy Variables for CarOfferList (Quota/Price/CurrentPC/StartingPC/DestinationPC/TravelTime/PickupTime/DropOffTime/CarType)
-        
-        /*CarOfferList.add(new CarOffer(1, 200, 100, "2033", "2033", "2056", "2", date, "10", 2, "Four wheel drive"));
-        CarOfferList.add(new CarOffer(2, 300, 100, "2033", "2033", "2088", "2", "1", "3", 3, "Van"));
-        CarOfferList.add(new CarOffer(3, 400, 100, "2044", "2044", "2056", "2", "5", "11", 3, "Motorcycle"));
-        CarOfferList.add(new CarOffer(4, 500, 100, "2033", "2033", "2222", "2", "1", "3", 3, "Off road"));
-        CarOfferList.add(new CarOffer(5, 600, 100, "2055", "2055", "2088", "2", "6", "11", 2, "Four wheel drive"));
-        CarOfferList.add(new CarOffer(6, 700, 100, "2033", "2033", "2056", "2", "1", "3", 1, "Motorcycle"));*/
+        //Dummy Variables for CarOfferList (Quota/Price/CurrentPC/StartingPC/DestinationPC/TravelTime/PickupTime/DropOffTime)
+        CarOfferList.add(new CarOffer(1, 200.0, 100.0, "2033", "2033", "2056", "2", null, null));
+        CarOfferList.add(new CarOffer(2, 300.0, 100.0, "2033", "2033", "2088", "2", null, null));
+        CarOfferList.add(new CarOffer(3, 400.0, 100.0, "2044", "2044", "2056", "2", null, null));
+        CarOfferList.add(new CarOffer(4, 500.0, 100.0, "2033", "2033", "2222", "2", null, null));
+        CarOfferList.add(new CarOffer(5, 600.0, 100.0, "2055", "2055", "2088", "2", null, null));
+        CarOfferList.add(new CarOffer(6, 700.0, 100.0, "2033", "2033", "2056", "2", null, null));
         //Dummy Variables for CarSeekList (Member/PickupTime/DestinationPC/CurrentPC)
-        CarSeekList.add(new CarSeek(1, null, "12", "2204", "2210", 5));
-        CarSeekList.add(new CarSeek(2, null, "16", "2056", "2215", 3));
-        CarSeekList.add(new CarSeek(3, null, "13", "2304", "2415", 3));
-        CarSeekList.add(new CarSeek(4, null, "12", "2222", "2232", 1));
-        CarSeekList.add(new CarSeek(5, null, "18", "2044", "2620", 3));
+        CarSeekList.add(new CarSeek(1, null, null, "2204", "2210"));
+        CarSeekList.add(new CarSeek(2, null, null, "2056", "2215"));
+        CarSeekList.add(new CarSeek(3, null, null, "2304", "2415"));
+        CarSeekList.add(new CarSeek(4, null, null, "2222", "2232"));
+        CarSeekList.add(new CarSeek(5, null, null, "2044", "2620"));
 
     }
 
@@ -41,9 +38,8 @@ public class SeekOfferManager {
 
     }
 
-    //displays all carSeek (carSeek arraylist)
-    public ArrayList<String> DisplayAllCarSeek() {
-        ArrayList<String> list = new ArrayList<String>();
+    public  ArrayList<String> DisplayAllCarSeek() {
+        ArrayList<String> list = new  ArrayList<String>();
         for (int i = 0; i < CarSeekList.size(); i++) {
             CarSeek carSeekTemp = CarSeekList.get(i);
             list.add(carSeekTemp.getCarSeekID() + ", " + carSeekTemp.getPickupTime() + ",  " + carSeekTemp.getDestinationPostCode() + ",  " + carSeekTemp.getCurrentPostCode());
@@ -51,23 +47,25 @@ public class SeekOfferManager {
         }
         return list;
     }
-//displays all carOffer (carOffer arraylist)
+
     public ArrayList<String> DisplayAllCarOffer() {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new  ArrayList<String>();
         for (CarOffer i : CarOfferList) {
-            list.add(i.getCarOfferID() + ", " + i.getQuota() + ", " + i.getPrice() + ", " + i.getCurrentPostCode() + ", " + i.getStartingPostCode() + ", " + i.getDestinationPostCode() + ", " + i.getTravelTime() + ", " + i.getPickupTime() + ", " + i.getDropOffTime());
+             list.add(i.getCarOfferID() + ", " + i.getQuota() + ", " + i.getPrice() + ", " + i.getCurrentPostCode() + ", " + i.getStartingPostCode() + ", " + i.getDestinationPostCode() + ", " + i.getTravelTime() + ", " + i.getPickupTime() + ", " + i.getDropOffTime());
             //System.out.println(i.getQuota() + i.getPrice() + i.getCurrentPostCode() + i.getStartingPostCode() + i.getDestinationPostCode() + i.getTravelTime() + i.getPickupTime() + i.getDropOffTime());
         }
         return list;
     }
-    
-//find function - finds all carOffer (from carOfferList arraylist) that has matching postcodes with all carSeek (from carSeekList arraylist)
+
     public ArrayList<String> findMatchByPostCode() {
         ArrayList<String> matchesFoundCarOffer = new ArrayList<String>();
+       
+        
         for (CarSeek x : CarSeekList) {
             String postCodeTemp = x.getDestinationPostCode();
             for (CarOffer y : CarOfferList) {
-                if (postCodeTemp == y.getDestinationPostCode()) {
+                if(postCodeTemp == y.getDestinationPostCode())
+                {
                     matchesFoundCarOffer.add(y.getPrice() + ", " + y.getQuota() + ", " + y.getTravelTime() + ", " + y.getCurrentPostCode() + ", " + y.getStartingPostCode() + ", " + y.getDestinationPostCode());
                     //System.out.println(y.getPrice() + y.getQuota() + y.getTravelTime() + y.getCurrentPostCode() + y.getStartingPostCode() + y.getDestinationPostCode());
                 }
@@ -75,121 +73,77 @@ public class SeekOfferManager {
         }
         return matchesFoundCarOffer;
     }
-
-    //find function - finds all carOffer (from carOfferList arraylist) that has the specified postcode
+    
     public ArrayList<String> findMatchBySinglePostCode(String postCode) {
-        ArrayList<String> matchesFoundCarOffer = new ArrayList<String>();
-
-        for (CarOffer y : CarOfferList) {
-            if (postCode == y.getDestinationPostCode()) {
-
-                matchesFoundCarOffer.add(y.getPrice() + ", " + y.getQuota() + ", " + y.getTravelTime() + ", " + y.getCurrentPostCode() + ", " + y.getStartingPostCode() + ", " + y.getDestinationPostCode());
-                //System.out.println(y.getPrice() + y.getQuota() + y.getTravelTime() + y.getCurrentPostCode() + y.getStartingPostCode() + y.getDestinationPostCode());
+             ArrayList<String> matchesFoundCarOffer = new ArrayList<String>();
+             
+            
+            for (CarOffer y : CarOfferList) {
+                if(postCode == y.getDestinationPostCode())
+                {
+                    
+                    matchesFoundCarOffer.add(y.getPrice() + ", " + y.getQuota() + ", " + y.getTravelTime() + ", " + y.getCurrentPostCode() + ", " + y.getStartingPostCode() + ", " + y.getDestinationPostCode());
+                    //System.out.println(y.getPrice() + y.getQuota() + y.getTravelTime() + y.getCurrentPostCode() + y.getStartingPostCode() + y.getDestinationPostCode());
+                }
             }
-        }
-        return matchesFoundCarOffer;
-
-    }
-
-    //add function - adds a carOffer to carOfferList
-    public boolean addCarOffer(int carOfferID, int quota, double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime, int numOfPassengers, String carType) {
-    //checks for logic error by checking if startinf and destination postcode are the same then returns false and a error message
-        if (startingPostCode == destinationPostCode) {
-            System.out.println("Starting postcode and destination postcode are the same");
-            return false;
-    //checks for logic error - postcode length not being of length 4 returns false and a error message
-        }
-
-        if (startingPostCode.length() != 4) {
-            System.out.println("Invalid postcode length");
-            return false;
-        }
-    //checks for logic error - price being equal to or lower than zero returns false and a error message
-        if (price <= 0){
-            System.out.println("Invalid price");
-            return false;
-        }
-   //if no logic errors have occured, return true and add the carOffer to the carOfferList     
-        CarOfferList.add(new CarOffer(carOfferID, quota, price, currentPostCode, startingPostCode, destinationPostCode, travelTime, pickupTime, dropOffTime, numOfPassengers, carType));
-        return true;
-
+            return matchesFoundCarOffer;
+        
     }
     
-    //add function - adds carSeek to carSeekList
-    public void addCarSeek(int carSeekID, Member ownerMember, String pickupTime, String destinationPostCode, String currentPostCode, int numOfPassengers) {
-        CarSeekList.add(new CarSeek(carSeekID, ownerMember, pickupTime, destinationPostCode, currentPostCode, numOfPassengers));
+    public void addCarOffer(int carOfferID, JourneyDetails jDetails, Date pickupTime, Date dropOffTime){
+        
+        
+         CarOfferList.add(new CarOffer(carOfferID, jDetails.getQuota(), jDetails.getPrice(), jDetails.getCurrentPostCode(), jDetails.getStartingPostCode(), jDetails.getDestinationPostCode(), jDetails.getTravelTime(), pickupTime, dropOffTime));
+        
+    }
+    
+      public void addCarSeek( int carSeekID, Member ownerMember, Date pickupTime, String destinationPostCode, String currentPostCode){
+          
+                   
+         CarSeekList.add(new CarSeek(  carSeekID,  ownerMember,  pickupTime,  destinationPostCode,  currentPostCode));
+        
+    }
+      
+    public Date[] addCarSeekDates(DestinationTime pickupTime, DestinationTime dropOfftime)
+    {
+       /* Date[] date = new Date[1];
+        //date[0] = pickupTime
+        GeneralFunctions.setTime(date[0], pickupTime.getYear(), 1, 1, 1, 1);
+        date[0] = GeneralFunctions.getTime();
+        //date[1] = dropOffTime
+        GeneralFunctions.setTime(date[1], dropOfftime.getYear(), 1, 1, 1, 1);
+        date[1] = GeneralFunctions.getTime();*/
+        return null;
+    }
+      
+    public boolean addCarSeekDetails()
+    {
+        /*
+        if(GeneralFunctions.checkDatesAreEqual(pickupTime, dropOffTime) == true){
+            addCarSeek("102", null, pickupTime, 2022, 2044);
+        }else{
+            return false;
+        }*/
+        return true;
+    }
+      
+     
+    private void chooseOffer()
+    {
+    
+    }
+    
+    private void displayOffersAvailable()
+    {
+    
+    }
+   
+
+    private void EditCarSeek() {
 
     }
-    //remove function - removes carOffer from carOfferList 
-    public boolean removeCarOffer(int carOfferID) {
-        try {
-            for (int i = 0; i < CarOfferList.size(); i++) {
-                if (CarOfferList.get(i).getCarOfferID() == carOfferID) {
 
-                    CarOfferList.remove(i);
-                    return true;
-                }
-
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Invalid carOfferID");
-        }
-        return false;
-    }
-//remove function - removes carSeek from carSeekList
-    public boolean removeCarSeek(int carSeekID) {
-        try {
-            for (int i = 0; i < CarSeekList.size(); i++) {
-                if (CarSeekList.get(i).getCarSeekID() == carSeekID) {
-                    CarSeekList.remove(i);
-                    return true;
-                }
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Invalid CarSeekID");
-        }
-        return false;
-    }
-
-    private void RemoveCarSeek(int carSeekID) {
-    }
-
-    private void chooseOffer() {
-
-    }
-
-    private void displayOffersAvailable() {
-
-    }
-
-    //edit function - edits carOffer from carOfferList
-    public void editCarOffer(int carOfferID, int quota, double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime, int numOfPassengers, String carType) {
-        for (int i = 0; i < CarOfferList.size(); i++) {
-            if (CarOfferList.get(i).getCarOfferID() == carOfferID) {
-                CarOfferList.get(i).setQuota(quota);
-                CarOfferList.get(i).setPrice(price);
-                CarOfferList.get(i).setCurrentPostCode(currentPostCode);
-                CarOfferList.get(i).setStartingPostCode(startingPostCode);
-                CarOfferList.get(i).setDestinationPostCode(destinationPostCode);
-                CarOfferList.get(i).setTravelTime(travelTime);
-                CarOfferList.get(i).setPickupTime(pickupTime);
-                CarOfferList.get(i).setDropOffTime(dropOffTime);
-                CarOfferList.get(i).setNumOfPassengers(numOfPassengers);
-                CarOfferList.get(i).setCarType(carType);
-            }
-        }
-    }
-
-    //edit function - edits carSeek from carSeekList
-    public void editCarSeek(int carSeekID, Member ownerMember, String pickupTime, String destinationPostCode, String currentPostCode, int numOfPassengers) {
-        for (int i = 0; i < CarSeekList.size(); i++) {
-            if (CarSeekList.get(i).getCarSeekID() == carSeekID) {
-                CarSeekList.get(i).setPickupTime(pickupTime);
-                CarSeekList.get(i).setDestinationPostCode(destinationPostCode);
-                CarSeekList.get(i).setCurrentPostCode(currentPostCode);
-                CarSeekList.get(i).setNumOfPassengers(numOfPassengers);
-            }
-        }
+    private void RemoveCarSeek() {
     }
 
     private void searchCarOffers() {
