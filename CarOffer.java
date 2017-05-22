@@ -53,6 +53,7 @@ public class CarOffer {
     public void setCurrentPostCode(String currentPostCode) {
         this.currentPostCode = currentPostCode;
     }
+    1
 
     public String getStartingPostCode() {
         return startingPostCode;
