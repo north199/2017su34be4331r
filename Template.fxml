@@ -14,12 +14,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="233.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorum Ipsum" textAlignment="CENTER">
+      <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorum Ipsum" textAlignment="CENTER" wrappingWidth="400.0000065565109">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <Button layoutX="513.0" layoutY="332.0" mnemonicParsing="false" text="Test" />
+      <Button layoutX="514.0" layoutY="332.0" mnemonicParsing="false" text="Test" />
       <TextField layoutX="100.0" layoutY="94.0" prefHeight="27.0" prefWidth="400.0" />
       <Text layoutX="100.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Testing testing" />
       <TextField layoutX="100.0" layoutY="157.0" prefHeight="27.0" prefWidth="270.0" />

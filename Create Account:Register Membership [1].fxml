@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Text layoutX="211.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Account" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Button layoutX="513.0" layoutY="332.0" mnemonicParsing="false" text="Next" />
+            <TextField layoutX="100.0" layoutY="94.0" prefHeight="27.0" prefWidth="180.0" />
+            <Text layoutX="100.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+            <TextField layoutX="100.0" layoutY="157.0" prefHeight="27.0" prefWidth="179.0" />
+            <Text layoutX="100.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
+            <TextField layoutX="100.0" layoutY="219.0" prefHeight="27.0" prefWidth="180.0" />
+            <Text layoutX="100.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home Phone" />
+            <TextField layoutX="100.0" layoutY="281.0" prefHeight="27.0" prefWidth="180.0" />
+            <Text layoutX="100.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Suber%20Logo.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="320.0" layoutY="281.0" prefHeight="27.0" prefWidth="180.0" />
+            <Text layoutX="320.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle" />
+            <Text layoutX="320.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" />
+            <RadioButton layoutX="321.0" layoutY="220.0" mnemonicParsing="false" text="M" />
+            <RadioButton layoutX="375.0" layoutY="221.0" mnemonicParsing="false" text="F" />
+            <TextField layoutX="320.0" layoutY="94.0" prefHeight="27.0" prefWidth="180.0" />
+            <Text layoutX="320.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+            <TextField layoutX="320.0" layoutY="158.0" prefHeight="27.0" prefWidth="180.0" />
+            <Text layoutX="320.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
