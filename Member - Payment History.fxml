@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment History" textAlignment="CENTER" wrappingWidth="400.0000065565109">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Button layoutX="425.0" layoutY="333.0" mnemonicParsing="false" text="Dispute a Payment" />
+      <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Suber%20Logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="41.0" layoutY="333.0" mnemonicParsing="false" text="Back" />
+      <ScrollPane layoutX="101.0" layoutY="74.0" prefHeight="235.0" prefWidth="400.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="233.0" prefWidth="393.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment 1" />
+                  <Text layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment 2" />
+                  <Text layoutX="13.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment 3" />
+                  <Text layoutX="13.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment 4" />
+                  <Text layoutX="165.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
+                  <Text layoutX="312.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receiver" />
+                  <Text layoutX="165.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
+                  <Text layoutX="312.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receiver" />
+                  <Text layoutX="165.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
+                  <Text layoutX="312.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receiver" />
+                  <Text layoutX="165.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
+                  <Text layoutX="312.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Receiver" />
+                  <Text layoutX="179.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="etc" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
