@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help" textAlignment="CENTER" wrappingWidth="400.0000065565109">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Button layoutX="510.0" layoutY="333.0" mnemonicParsing="false" text="Send" />
+            <TextField layoutX="100.0" layoutY="94.0" prefHeight="27.0" prefWidth="400.0" />
+            <Text layoutX="100.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
+            <TextField layoutX="100.0" layoutY="157.0" prefHeight="151.0" prefWidth="400.0" />
+            <Text layoutX="100.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" />
+            <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Suber%20Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

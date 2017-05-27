@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile" textAlignment="CENTER" wrappingWidth="400.0000065565109">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Button layoutX="511.0" layoutY="332.0" mnemonicParsing="false" text="Next" />
+            <TextField layoutX="100.0" layoutY="221.0" prefHeight="27.0" prefWidth="90.0" />
+            <Text layoutX="100.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address No." />
+            <TextField layoutX="100.0" layoutY="282.0" prefHeight="27.0" prefWidth="280.0" />
+            <Text layoutX="100.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suburb" />
+            <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Suber%20Logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="41.0" layoutY="333.0" mnemonicParsing="false" text="Back" />
+            <TextField layoutX="220.0" layoutY="220.0" prefHeight="27.0" prefWidth="280.0" />
+            <Text layoutX="221.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
+            <TextField layoutX="409.0" layoutY="282.0" prefHeight="27.0" prefWidth="90.0" />
+            <Text layoutX="409.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
+         </children>
+      </AnchorPane>
+      <TextField layoutX="99.0" layoutY="156.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text layoutX="101.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth" />
+      <Text layoutX="101.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" />
+      <RadioButton layoutX="102.0" layoutY="94.0" mnemonicParsing="false" text="M" />
+      <RadioButton layoutX="156.0" layoutY="95.0" mnemonicParsing="false" text="F" />
+   </children>
+</AnchorPane>
