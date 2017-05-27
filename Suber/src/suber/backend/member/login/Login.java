@@ -51,6 +51,7 @@ public class Login {
                 session.setEmail(email);
                 session.setUserId(retrievedID);
                 session.setPassword(Crypto.encryptString(password));
+                System.out.println(session.getUserId());
                 checkAccountType(email);
                 return true;
             } return false;
