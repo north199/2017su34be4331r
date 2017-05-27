@@ -25,17 +25,17 @@
       </ImageView>
       <Button layoutX="501.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
       <Button layoutX="138.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="232.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
-      <Button layoutX="339.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="433.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
-      <TableView layoutX="135.0" layoutY="74.0" prefHeight="232.0" prefWidth="167.0">
+      <Button layoutX="252.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
+      <Button layoutX="377.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
+      <Button layoutX="491.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
+      <TableView layoutX="135.0" layoutY="74.0" prefHeight="232.0" prefWidth="185.0">
          <columns>
-            <TableColumn prefWidth="150.0" text="Offer" />
+            <TableColumn prefWidth="185.0" text="Offer" />
          </columns>
       </TableView>
-      <TableView layoutX="334.0" layoutY="75.0" prefHeight="232.0" prefWidth="167.0">
+      <TableView layoutX="374.0" layoutY="74.0" prefHeight="232.0" prefWidth="185.0">
          <columns>
-            <TableColumn prefWidth="150.0" text="Seek" />
+            <TableColumn prefWidth="185.0" text="Seek" />
          </columns>
       </TableView>
       <Text layoutX="433.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
@@ -51,11 +51,6 @@
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Offer Ride" textAlignment="JUSTIFY" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Agreements" textAlignment="JUSTIFY">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Adjustments" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />

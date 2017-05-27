@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -29,8 +30,11 @@
             <TextField layoutX="99.0" layoutY="156.0" prefHeight="27.0" prefWidth="180.0" promptText="YYYY-MM-DD" />
             <Text layoutX="101.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth" />
             <Text layoutX="101.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" />
-            <RadioButton layoutX="102.0" layoutY="94.0" mnemonicParsing="false" text="Male" />
-            <RadioButton layoutX="170.0" layoutY="94.0" mnemonicParsing="false" text="Female" />
+            <RadioButton layoutX="102.0" layoutY="94.0" mnemonicParsing="false" selected="true" text="Male">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup></RadioButton>
+            <RadioButton layoutX="170.0" layoutY="94.0" mnemonicParsing="false" selected="true" text="Female" toggleGroup="$gender" />
             <TextField layoutX="99.0" layoutY="281.0" prefHeight="27.0" prefWidth="180.0" />
             <Text layoutX="99.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Corporate Code (optional)" />
             <Text layoutX="101.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I want to:" />

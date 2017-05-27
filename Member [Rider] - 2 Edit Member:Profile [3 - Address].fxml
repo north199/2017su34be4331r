@@ -27,7 +27,6 @@
                         <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Offer Ride" textAlignment="JUSTIFY" />
                   <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Adjustments" textAlignment="JUSTIFY">
                      <VBox.margin>
                         <Insets />
