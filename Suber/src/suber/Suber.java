@@ -5,6 +5,8 @@
  */
 package suber;
 
+import suber.ui.registration.Register;
+
 
 /**
  *

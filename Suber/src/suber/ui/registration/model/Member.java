@@ -12,4 +12,6 @@ package suber.ui.registration.model;
  */
 public class Member {
     
+    
+    
 }

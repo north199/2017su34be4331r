@@ -21,11 +21,10 @@ public class Register extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         URL location = getClass().getResource("view/RegisterStepOne.fxml");
 
-
         Parent root = FXMLLoader.load(location);
+         
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setTitle("Suber - Register");
         primaryStage.setResizable(false);
