@@ -13,8 +13,13 @@ import sun.misc.*;
 
 /**
  *
- * @author Andrew Originally built by FARHAN KHWAJA and released for open source.
+ * @author Andrew, Originally built by FARHAN KHWAJA and released open source.
  * The code has been modified for increased security and code reuse.
+ * 
+ * My modifications:
+ * Improved encryption standard to use Advanced Encryption Standards (AES)
+ * Modified and strengthened 15-bit private key
+ * Base64 encoding/decoding post encryption/pre decryption for compatibility and further security
  */
 public class Crypto {
 

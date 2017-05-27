@@ -22,6 +22,7 @@ public class ServerConfig {
 
     /**
      * Initialises database variables
+     * @throws java.lang.Exception
      */
     public ServerConfig() throws Exception {
         this.host = Crypto.decryptString("QFILuExmvOO8bvKO16w/1w==");

@@ -25,7 +25,7 @@ public class SuberDB {
     public SuberDB() {
         try {
             config = new ServerConfig();
-            // Import MySQL driver and attempt to connect to DB via jdbc
+            // Import MySQL jdbc driver and attempt to connect to database
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(
                     "jdbc:mysql://" + config.getHost() + ":3306/" + config.getDB(), config.getUser(), config.getPass());
@@ -50,7 +50,19 @@ public class SuberDB {
             return null;
         }
     }
-
+    
+    /**
+     * Provides an easy function for executing updating MySQL queries
+     * 
+     * @param query The MySQL query to execute
+     */
+    public void executeUpdate(String query) {
+        try {
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     /**
      * Function to get current database
      *

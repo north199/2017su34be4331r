@@ -10,26 +10,26 @@ import java.sql.*;
 import java.util.Scanner;
 
 /**
- * This class tests the MySQL db connection
+ * This class is used for testing the database server connection
  * @author Andrew
  */
 public class TestConnection {
     
     public static void main(String[] args) throws Exception {
         // Initialize server config
-        SuberDB db = new SuberDB();
-        boolean loggedIn = false;
-        Scanner scanner = new Scanner(System.in);
-
-        while (!loggedIn) {
-            System.out.print("Enter your username: ");
-            String user = scanner.next();
-            System.out.print("Enter your password: ");
-            String pass = scanner.next();
-            String query = "SELECT * FROM ab66986_suber.test_login "
+        
+            //String query2 = "SELECT * FROM " + db.getDatabaseName() + ".test_login;";
+            //try {
+            //    ResultSet resultSet = db.executeQuery(query2);
+      
+            //} catch (Exception ex) {
+            //    System.out.println(ex.toString());
+            //}
+            
+            /**String query = "SELECT * FROM ab66986_suber.test_login "
                     + "WHERE username = \"" + user + "\" "
                     + "AND password = \"" + pass +"\"";
-            try {
+            /**try {
                 ResultSet results = db.executeQuery(query);
                 results.next();
                 String retrievedUser = results.getString(1);
@@ -43,7 +43,7 @@ public class TestConnection {
             } catch (Exception e) {
                 System.out.println("Login failed!");
             }
-        }
+        }**/
         /**
         try {
             ResultSet results = db.executeQuery("SELECT * FROM test;");
