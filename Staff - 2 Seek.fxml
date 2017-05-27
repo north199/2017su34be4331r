@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="233.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suber Admin" textAlignment="CENTER">
+      <Text layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suber Admin" textAlignment="CENTER" wrappingWidth="599.9999913573265">
          <font>
             <Font size="22.0" />
          </font>
@@ -40,7 +40,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="195.0" text="Mail">
+            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="160.0" text="Mail">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -54,7 +54,7 @@
       </Text>
       <TableView layoutX="190.0" layoutY="73.0" prefHeight="236.0" prefWidth="370.0">
         <columns>
-          <TableColumn prefWidth="370.0" text="All Offers" />
+          <TableColumn prefWidth="370.0" text="All Seek" />
         </columns>
       </TableView>
       <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" text="Edit" />

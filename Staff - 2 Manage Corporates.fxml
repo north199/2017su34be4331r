@@ -14,11 +14,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="269.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suber" textAlignment="CENTER">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
       <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Suber%20Logo.png" />
@@ -26,27 +21,22 @@
       </ImageView>
       <VBox layoutX="-2.0" layoutY="74.0" prefHeight="331.0" prefWidth="160.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="160.0" text="View Offers" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="160.0" text="View Offers" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="160.0" text="View Seek" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="160.0" text="View Seek" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="195.0" text="Manage Corporates" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="195.0" text="Manage Corporates" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="172.0" text="Manage Customers">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="195.0" text="Mail">
+            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="195.0" text="Mail">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -72,5 +62,10 @@
       <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" text="Create" />
       <Button layoutX="490.0" layoutY="333.0" mnemonicParsing="false" text="Remove" />
       <Button layoutX="354.0" layoutY="333.0" mnemonicParsing="false" text="Edit" />
+      <Text layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suber Admin" textAlignment="CENTER" wrappingWidth="599.9999913573265">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
