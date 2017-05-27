@@ -28,6 +28,15 @@ public class Crypto {
     private static final byte[] keyValue
             = new byte[]{'S', 'u', 'b', 'e', 'r', '2', '6', '0', '5', '=', '=', '=', '=', '=', '=', '='};
 
+    /** 
+     * Function for debugging stuff
+     * 
+     * @param args 
+     */
+    public static void main(String[] args) throws Exception {
+        System.out.println(encryptString("abc123"));
+    }
+    
     /**
      * Function to AES encrypt input
      *

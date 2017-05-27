@@ -11,31 +11,30 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="suber.ui.registration.controller.RegisterStepOneController">
    <children>
-      <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Membership" textAlignment="CENTER" wrappingWidth="400.0000065565109">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <Button fx:id="nextButton" layoutX="511.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Next" />
-      <Text fx:id="firstNameLabel" layoutX="100.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
-      <TextField fx:id="emailText" layoutX="100.0" layoutY="157.0" prefHeight="27.0" prefWidth="400.0" />
-      <Text fx:id="emailLabel" layoutX="100.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
-      <TextField fx:id="phoneText" layoutX="100.0" layoutY="219.0" prefHeight="27.0" prefWidth="400.0" promptText="04XXXXXXXX" />
-      <Text fx:id="phoneLabel" layoutX="100.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile Phone" />
       <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../resources/logo.png" />
          </image>
       </ImageView>
+      <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Membership" textAlignment="CENTER" wrappingWidth="400.0000065565109">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="firstNameText" layoutX="100.0" layoutY="94.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text fx:id="firstNameLabel" layoutX="100.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
       <TextField fx:id="lastNameText" layoutX="320.0" layoutY="93.0" prefHeight="27.0" prefWidth="180.0" />
       <Text fx:id="lastNameLabel" layoutX="320.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
-      <Text layoutX="247.0" layoutY="-15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
-      <Text fx:id="passLabel" layoutX="100.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <Text layoutX="99.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" visible="false" />
-      <Text fx:id="statusLabel" layoutX="100.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{{status}}" visible="false" />
-      <Text fx:id="confirmPassLabel" layoutX="323.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password" />
+      <TextField fx:id="emailText" layoutX="100.0" layoutY="157.0" prefHeight="27.0" prefWidth="400.0" />
+      <Text fx:id="emailLabel" layoutX="100.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
+      <TextField fx:id="phoneText" layoutX="100.0" layoutY="219.0" prefHeight="27.0" prefWidth="400.0" promptText="04XXXXXXXX" />
+      <Text fx:id="phoneLabel" layoutX="100.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile Phone" />
       <PasswordField fx:id="passText" layoutX="100.0" layoutY="281.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text fx:id="passLabel" layoutX="100.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
       <PasswordField fx:id="confirmPassText" layoutX="320.0" layoutY="281.0" prefHeight="27.0" prefWidth="180.0" />
-      <TextField fx:id="firstNameText" layoutX="100.0" layoutY="94.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text fx:id="confirmPassLabel" layoutX="323.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password" />
+      <Text fx:id="statusLabel" layoutX="100.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{{status}}" visible="false" />
+      <Button fx:id="nextButton" layoutX="511.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Next" />
+      <Button fx:id="backButton" layoutX="44.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
    </children>
 </AnchorPane>

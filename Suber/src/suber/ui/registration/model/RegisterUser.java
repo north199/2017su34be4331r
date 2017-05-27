@@ -10,8 +10,12 @@ package suber.ui.registration.model;
  *
  * @author Andrew
  */
-public class Member {
+public class RegisterUser {
+     
     
     
+    public RegisterUser() {
+        
+    }
     
 }

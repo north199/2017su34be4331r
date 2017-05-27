@@ -5,8 +5,9 @@
  */
 package suber;
 
-import suber.ui.registration.Register;
-
+import javafx.stage.Stage;
+import suber.backend.member.session.Session;
+import suber.ui.login.LoginLauncher;
 
 /**
  *
@@ -14,7 +15,9 @@ import suber.ui.registration.Register;
  */
 public class Suber {
    
-    public static void main(String[] args) {
+    public static Session session = new Session();
+    
+    public static void main(String[] args) throws Exception {
         
     }
     
