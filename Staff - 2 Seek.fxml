@@ -47,11 +47,6 @@
             </Button>
          </children>
       </VBox>
-      <Text layoutX="503.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
-         <font>
-            <Font size="8.0" />
-         </font>
-      </Text>
       <TableView layoutX="190.0" layoutY="73.0" prefHeight="236.0" prefWidth="370.0">
         <columns>
           <TableColumn prefWidth="370.0" text="All Seek" />
@@ -59,5 +54,11 @@
       </TableView>
       <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="491.0" layoutY="333.0" mnemonicParsing="false" text="Remove" />
+      <Button layoutX="500.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
+      <Text layoutX="432.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
