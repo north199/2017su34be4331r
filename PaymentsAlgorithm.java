@@ -32,7 +32,7 @@ Fuel cost = Pull database data on end and start time then mulitply it by 3
     }
 
     public double calculateCost(Timestamp starttime, Timestamp endtime) {
-        cost = estimatedtraveltime * fuelconstant + fixedfee;
+        cost = estimatedtraveltime/60 * fuelconstant + fixedfee;
         return cost;
     }
 
