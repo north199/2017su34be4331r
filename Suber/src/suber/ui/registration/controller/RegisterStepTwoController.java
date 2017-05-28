@@ -10,8 +10,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -161,6 +159,7 @@ public class RegisterStepTwoController implements Initializable {
         // check if valid corporate code
         if (corporateText.getText().length() > 0 && Validator.containsDigits(corporateText.getText())) {
             // try sql for corporate
+            registerSession.setIsCorporate(false);
             String corporateCheck = "SELECT `corporate_code` FROM `ab66986_suber`.`corporate_entity` ";
             corporateCheck += "WHERE `corporate_code` = '" + corporateText.getText() + "';";
             try {
@@ -168,7 +167,9 @@ public class RegisterStepTwoController implements Initializable {
                 results.next();
                 String retrievedCode = results.getString(1);
                 if (retrievedCode.equals(corporateText.getText())) {
-                    registerSession.setCompanyCode(Integer.parseInt(corporateText.getText()));         
+                    registerSession.setCompanyCode(Integer.parseInt(corporateText.getText()));     
+                    registerSession.setIsCorporate(true);
+                    System.out.println("Dis guy a corporate!!!");
                 }
             } catch (Exception e) {
                 corporateLabel.setFill(errorColour.getValue());
@@ -180,10 +181,9 @@ public class RegisterStepTwoController implements Initializable {
         
         // assume data is clean
         registerSession.setGender(selectedGenderButton.getText());
-        Date dob = new SimpleDateFormat("yyyy-mm-dd").parse(dobText.getText());
-        registerSession.setDob(dob);
+        registerSession.setDob(dobText.getText());
         registerSession.setAccountType(selectedTypeButton.getText());
-        
+
         // goto next page :)
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/RegisterStepThree.fxml"));

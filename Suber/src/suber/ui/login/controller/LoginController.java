@@ -22,13 +22,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import suber.backend.SuberDB;
 import suber.backend.member.login.Login;
 import suber.backend.security.Validator;
-import suber.ui.registration.RegisterLauncher;
 
 /**
  *

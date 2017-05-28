@@ -34,7 +34,7 @@ public class Crypto {
      * @param args 
      */
     public static void main(String[] args) throws Exception {
-        System.out.println(encryptString("abc123"));
+        System.out.println(encryptString("123edsaq"));
     }
     
     /**

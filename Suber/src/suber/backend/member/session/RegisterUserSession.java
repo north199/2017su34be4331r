@@ -17,7 +17,7 @@ public class RegisterUserSession {
     private String password;
 
     private String gender;
-    private Date dob;
+    private String dob;
     private String accountType;
     private boolean isCorporate;
     private int companyCode;
@@ -50,7 +50,11 @@ public class RegisterUserSession {
     public String fFame() {
         return this.fName;
     }
-
+    
+    public String getFName() {
+        return this.fName;
+    }
+    
     public void setFName(String fName) {
         this.fName = fName;
     }
@@ -87,11 +91,11 @@ public class RegisterUserSession {
         this.gender = gender;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return this.dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         this.dob = dob;
     }
 
@@ -107,7 +111,7 @@ public class RegisterUserSession {
         return this.isCorporate;
     }
     
-    private void setIsCorporate(boolean isCorporate) {
+    public void setIsCorporate(boolean isCorporate) {
         this.isCorporate = isCorporate;
     }
 

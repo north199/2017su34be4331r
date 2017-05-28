@@ -43,43 +43,43 @@ public class RegisterStepThreeController implements Initializable {
 
     @FXML
     private Button backButton;
-    
+
     @FXML
     private Text statusLabel;
-    
+
     @FXML
     private CheckBox tosCBox;
-    
+
     @FXML
     private Text workLabel;
-    
+
     @FXML
     private Text homeLabel;
-    
+
     @FXML
     private TextField workAddressNum;
-    
+
     @FXML
     private TextField workStreet;
-    
+
     @FXML
     private TextField workSuburb;
-    
+
     @FXML
     private TextField workPostCode;
-    
+
     @FXML
     private TextField homeAddressNum;
-    
+
     @FXML
     private TextField homeStreet;
-    
+
     @FXML
     private TextField homeSuburb;
-    
+
     @FXML
     private TextField homePostCode;
-    
+
     /**
      * Return user to the home page If you can be bothered, update old page
      * details with session details
@@ -103,7 +103,7 @@ public class RegisterStepThreeController implements Initializable {
             System.out.println(ex.toString());
         }
     }
-    
+
     /**
      * Validates the registration field.
      *
@@ -116,17 +116,17 @@ public class RegisterStepThreeController implements Initializable {
         errorColour.setValue(Color.RED);
         final ColorPicker correctColour = new ColorPicker();
         correctColour.setValue(Color.BLACK);
-        
+
         // colour resets
         homeLabel.setFill(correctColour.getValue());
         workLabel.setFill(correctColour.getValue());
-        
+
         // Check if agreed to TOS
         if (!tosCBox.isSelected()) {
             displayErrorMessage("You must agree with our terms.");
             return;
         }
-        
+
         // validation and stuff
         if (workAddressNum.getText().length() < 1 || workStreet.getText().length() < 1 || workSuburb.getText().length() < 1
                 || workPostCode.getText().length() < 1 || homeAddressNum.getText().length() < 1 || homeStreet.getText().length() < 1
@@ -136,15 +136,15 @@ public class RegisterStepThreeController implements Initializable {
             displayErrorMessage("Please fill in all fields.");
             return;
         }
-        
-        if (!Validator.containsDigits(workAddressNum.getText()) || !Validator.containsDigits(workPostCode.getText()) ||
-                !Validator.containsDigits(homeAddressNum.getText()) || !Validator.containsDigits(homePostCode.getText())) {
+
+        if (!Validator.containsDigits(workAddressNum.getText()) || !Validator.containsDigits(workPostCode.getText())
+                || !Validator.containsDigits(homeAddressNum.getText()) || !Validator.containsDigits(homePostCode.getText())) {
             homeLabel.setFill(errorColour.getValue());
             workLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please fill in all fields correctly.");
             return;
         }
-        
+
         // sqli purge
         if (Validator.isMaliciousText(workAddressNum.getText())) {
             workLabel.setFill(errorColour.getValue());
@@ -194,7 +194,7 @@ public class RegisterStepThreeController implements Initializable {
             displayErrorMessage("Please fill in all fields correctly.");
             return;
         }
-        
+
         // assume data is clean
         registerSession.setWorkNumber(Integer.parseInt(workAddressNum.getText()));
         registerSession.setWorkPostcode(Integer.parseInt(workPostCode.getText()));
@@ -204,12 +204,10 @@ public class RegisterStepThreeController implements Initializable {
         registerSession.setHomePostcode(Integer.parseInt(homePostCode.getText()));
         registerSession.setHomeStreet(homeStreet.getText());
         registerSession.setHomeSuburb(homeSuburb.getText());
-        
+
         // next page :)
-        System.out.println("Success!");
-        /**
-         * try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/RegisterStepThree.fxml"));
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/RegisterStepFour.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage primaryStage = new Stage();
             primaryStage.setScene(new Scene(root1, 600, 400));
@@ -222,9 +220,8 @@ public class RegisterStepThreeController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.toString());
         }
-         */
     }
-    
+
     /**
      * Utilises the statusText field to display error messages
      *
@@ -234,7 +231,7 @@ public class RegisterStepThreeController implements Initializable {
         statusLabel.setText(error);
         statusLabel.setVisible(true);
     }
-    
+
     /**
      * Initializes the controller class.
      */
@@ -243,6 +240,6 @@ public class RegisterStepThreeController implements Initializable {
         // TODO
         db = new SuberDB();
         registerSession = Suber.registerSession;
-    }    
-    
+    }
+
 }

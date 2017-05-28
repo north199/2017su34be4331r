@@ -4,7 +4,7 @@
  *  * AUTHOR: Andrew Snow *
  *  ***********************
  */
-package suber.ui.registration;
+package suber.ui.dashboard.staff;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,21 +12,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.net.URL;
+import static javafx.application.Application.launch;
 
 /**
  *
  * @author Andrew
  */
-public class RegisterLauncher extends Application {
+public class StaffLauncher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        URL location = getClass().getResource("view/RegisterStepFour.fxml");
+        URL location = getClass().getResource("view/StaffLandingPage.fxml");
 
         Parent root = FXMLLoader.load(location);
-         
+
         primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.setTitle("Suber - Register");
+        primaryStage.setTitle("Suber - Admin");
         primaryStage.setResizable(false);
         primaryStage.show();
     }
@@ -34,5 +35,5 @@ public class RegisterLauncher extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -24,8 +24,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import suber.Suber;
 import suber.backend.SuberDB;
+import suber.backend.member.registration.RegisterPaymentDetails;
 import suber.backend.member.registration.RegisterUser;
+import suber.backend.member.session.LoginSession;
 import suber.backend.member.session.RegisterUserSession;
+import suber.backend.security.Crypto;
 import suber.backend.security.Validator;
 
 /**
@@ -38,6 +41,8 @@ public class RegisterStepFourController implements Initializable {
     SuberDB db;
     RegisterUserSession registerSession;
     RegisterUser registration;
+    RegisterPaymentDetails registrationPayments;
+    LoginSession loginSession;
 
     @FXML
     private Button nextButton;
@@ -47,16 +52,16 @@ public class RegisterStepFourController implements Initializable {
 
     @FXML
     private Text statusLabel;
-    
+
     @FXML
     private Text bankLabel;
-    
+
     @FXML
     private Text cardLabel;
-    
+
     @FXML
     private TextField bankName;
-    
+
     @FXML
     private TextField bankBSB;
 
@@ -67,14 +72,14 @@ public class RegisterStepFourController implements Initializable {
     private TextField cardName;
 
     @FXML
-    private TextField cardNum;    
-    
+    private TextField cardNum;
+
     @FXML
     private TextField cardExpiry;
 
     @FXML
     private TextField cardCVV;
-    
+
     /**
      * Return user to the home page If you can be bothered, update old page
      * details with session details
@@ -105,7 +110,8 @@ public class RegisterStepFourController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleNextButtonAction(ActionEvent event) {
+    private void handleNextButtonAction(ActionEvent event) throws Exception {
+        System.out.println("reached");
         // Declare paint compatible colour codes for validation
         final ColorPicker errorColour = new ColorPicker();
         errorColour.setValue(Color.RED);
@@ -115,7 +121,7 @@ public class RegisterStepFourController implements Initializable {
         // colour resets
         bankLabel.setFill(correctColour.getValue());
         cardLabel.setFill(correctColour.getValue());
-        
+
         // Validation
         if (bankName.getText().length() < 1 || bankAcc.getText().length() < 1 || bankBSB.getText().length() < 1
                 || cardName.getText().length() < 1 || cardNum.getText().length() < 1 || cardExpiry.getText().length() < 1
@@ -125,19 +131,19 @@ public class RegisterStepFourController implements Initializable {
             displayErrorMessage("Please fill in all fields.");
             return;
         }
-        
+
         if (!Validator.containsDigits(bankBSB.getText()) || !Validator.containsDigits(bankAcc.getText())) {
             bankLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please re-enter your bank details using numbers.");
             return;
         }
-        
+
         if (!Validator.containsDigits(cardNum.getText()) || !Validator.containsDigits(cardCVV.getText())) {
             cardLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please re-enter your card details only using numbers.");
             return;
         }
-        
+
         // purge sqli
         if (Validator.isMaliciousText(bankName.getText())) {
             bankLabel.setFill(errorColour.getValue());
@@ -169,7 +175,7 @@ public class RegisterStepFourController implements Initializable {
             displayErrorMessage("Please fill in all fields correctly.");
             return;
         }
-        
+
         if (Validator.isMaliciousText(cardExpiry.getText())) {
             cardLabel.setFill(errorColour.getValue());
             cardExpiry.setText("");
@@ -182,20 +188,51 @@ public class RegisterStepFourController implements Initializable {
             displayErrorMessage("Please fill in all fields correctly.");
             return;
         }
-        
+        System.out.println("data is clean");
         // assume data is clean and set session
         /**
-         * String firstName, String lastName, int homeStreetNum, String homeStreetAddress, String homeSuburb,
-            int homePostCode, int workStreetNum, String workStreetAddress, String workSuburb, int workPostCode, String phoneNum,
-            String email, String password, String gender, Date dateOfBirth
-         */      
-        //registration.RegisterNewUser(registerSession.get, lastName, 0, homeStreetAddress, homeSuburb, 0, 0, workStreetAddress, workSuburb, 0, phoneNum, email, password, gender, dateOfBirth);
+         * String firstName, String lastName, int homeStreetNum, String
+         * homeStreetAddress, String homeSuburb, int homePostCode, int
+         * workStreetNum, String workStreetAddress, String workSuburb, int
+         * workPostCode, String phoneNum, String email, String password, String
+         * gender, Date dateOfBirth
+         */
+        try {
+            // create new user
+            registration.RegisterNewUser(registerSession.getFName(), registerSession.getLName(), registerSession.getHomeNumber(), registerSession.getHomeStreet(),
+                registerSession.getHomeSuburb(), registerSession.getHomePostcode(), registerSession.getWorkNumber(), registerSession.getWorkStreet(),
+                registerSession.getWorkSuburb(), registerSession.getWorkPostcode(), registerSession.getPhoneNumber(), registerSession.getEmail(),
+                Crypto.encryptString(registerSession.getPassword()), registerSession.getIsCorporate(), registerSession.getGender(), registerSession.getDob());
+            
+            if (Validator.containsDigits("" + registerSession.getUserId())) {
+                // determine type of acc
+                registration.RegisterNewAccountType(registerSession.getUserId(), registerSession.getAccountType());
+                
+                // upload encrypted payment deets
+                registrationPayments.RegisterPaymentDetails(bankName.getText(), bankAcc.getText(), bankBSB.getText(), 
+                    cardName.getText(), cardCVV.getText(), cardExpiry.getText(), cardNum.getText());
+            } else { 
+                System.out.println("registration somehow failed?");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            displayErrorMessage("An error has occurred, please restart the app.");
+            return;
+        }
         
-        // begin registration processs
-        System.out.println("successful registration mate");
+        // done
+        System.out.println("if i got here succesfully then a user has been registered YEAH THE BOYS");
+        loginSession.setEmail(registerSession.getEmail());
+        loginSession.setUserId("" + registerSession.getUserId());
+        loginSession.setAccountType(registerSession.getAccountType());
+        
+        if (loginSession.getAccountType().equalsIgnoreCase("ride")) {
+            // display dashboard
+        } else if (loginSession.getAccountType().equalsIgnoreCase("drive")) {
+            // display car registration page
+        }
     }
-    
-    
+
     /**
      * Utilises the statusText field to display error messages
      *
@@ -205,7 +242,7 @@ public class RegisterStepFourController implements Initializable {
         statusLabel.setText(error);
         statusLabel.setVisible(true);
     }
-    
+
     /**
      * Initializes the controller class.
      */
@@ -214,7 +251,9 @@ public class RegisterStepFourController implements Initializable {
         // TODO
         db = new SuberDB();
         registerSession = Suber.registerSession;
-        registration = new RegisterUser();
-    }    
-    
+        registration = Suber.registration;
+        registrationPayments = Suber.registrationPayments;
+        loginSession = Suber.session;
+    }
+
 }

@@ -37,8 +37,8 @@
       <Button fx:id="nextButton" layoutX="504.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Finish" />
       <Button fx:id="backButton" layoutX="41.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
       <Text fx:id="statusLabel" layoutX="99.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{{status}}" visible="false" />
-      <Text layoutX="50.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank" />
-      <Text layoutX="51.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card" />
+      <Text fx:id="bankLabel" layoutX="50.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank" />
+      <Text fx:id="cardLabel" layoutX="51.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card" />
       <Text layoutX="191.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All details are stored with military grade encryption.">
          <font>
             <Font size="9.0" />

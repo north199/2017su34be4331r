@@ -36,65 +36,66 @@ public class Login {
     public boolean tryLogin(String email, String password) throws Exception {
         email = email.toLowerCase();
         // If true check accounttype based on 
-        String query = "SELECT `user_ID`, `email`, `password` FROM " + db.getDatabaseName() + ".user_list "
-                + "WHERE email = \"" + email.toLowerCase() + "\" "
-                + "AND password = \"" + Crypto.encryptString(password) + "\"";
-        
-        try {
-            ResultSet results = db.executeQuery(query);
-            results.next();
+        System.out.println(email);
+        String query = "SELECT `user_ID`, `email`, `password` FROM `" + db.getDatabaseName() + "`.`user_list` ";
+        query += "WHERE `email` = '" + email + "' ";
+        query += "AND `password` = '" + Crypto.encryptString(password) + "';";
+
+        ResultSet results = db.executeQuery(query);
+        while (results.next()) {
             String retrievedID = results.getString(1);
             String retrievedUser = results.getString(2);
             String retrievedPass = results.getString(3);
-            if (retrievedUser.equals(email) && retrievedPass.equals(Crypto.encryptString(password))) {
+            System.out.println(retrievedID + " " + retrievedUser + " " + retrievedPass);
+            if (retrievedUser.equalsIgnoreCase(email) && retrievedPass.equals(Crypto.encryptString(password))) {
                 System.out.println("Successfully logged in!");
                 session.setEmail(email);
                 session.setUserId(retrievedID);
-                session.setPassword(Crypto.encryptString(password));
-                System.out.println(session.getUserId());
                 checkAccountType(email);
                 return true;
-            } return false;
-        } catch (Exception e) {
+            }
             return false;
         }
+        return false;
     }
 
-    
     /**
      * This function checks the account type and sets it for the session
+     *
      * @param email Input email as string
      */
     public void checkAccountType(String email) {
-
-        String checkStaff = "SELECT staff_id from " + db.getDatabaseName() + ".staff_list s JOIN user_list u WHERE (s.staff_id = u.user_id) AND u.email = '" + email.toLowerCase() + "';";
-        String checkDriver = "SELECT driver_id from " + db.getDatabaseName() + ".driver_list WHERE `driver_id` = '" + session.getUserId() + "';";
+        String checkStaff = "SELECT staff_id FROM staff_list s JOIN user_list u ON s.staff_id = u.user_id WHERE u.email  = '" + email + "';";
+        String checkDriver = "SELECT driver_id FROM driver_list d JOIN user_list u ON d.driver_id = u.user_id WHERE u.email = '" + email + "';";
         try {
             ResultSet results = db.executeQuery(checkStaff);
             while (results.next()) {
-                String id = results.getString(1);
-                if (id != null) {
+                int id = results.getInt(1);
+                if ((id + "").length() > 0) {
                     session.setAccountType("Staff");
-                    System.out.println("Staff");
+                    System.out.println(session.getAccountType());
+
+                    return;
                 }
             }
         } catch (Exception notStaff) {
-            
+            System.out.println(notStaff);
         }
-        
         try {
             ResultSet results = db.executeQuery(checkDriver);
             while (results.next()) {
-                String id = results.getString(1);
-                if (id != null) {
-                    session.setAccountType("Driver");
-                    System.out.println("Driver");
+                int id = results.getInt(1);
+                if ((id + "").length() > 0) {
+                    session.setAccountType("Drive");
+                    System.out.println(session.getAccountType());
+                    return;
                 }
             }
         } catch (Exception notDriver) {
-            session.setAccountType("Rider");
-            System.out.println("Rider");
+            System.out.println(notDriver);
         }
+        session.setAccountType("Ride");
+        System.out.println(session.getAccountType());
     }
 
 }

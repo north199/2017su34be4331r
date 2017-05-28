@@ -35,10 +35,10 @@
             <Text layoutX="99.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address No." />
             <TextField fx:id="homeStreet" layoutX="219.0" layoutY="220.0" prefHeight="27.0" prefWidth="280.0" />
             <Text layoutX="220.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Street" />
-            <TextField fx:id="homePostCode" layoutX="408.0" layoutY="282.0" prefHeight="27.0" prefWidth="90.0" />
-            <Text layoutX="408.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
             <TextField fx:id="homeSuburb" layoutX="99.0" layoutY="282.0" prefHeight="27.0" prefWidth="280.0" />
             <Text layoutX="99.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suburb" />
+            <TextField fx:id="homePostCode" layoutX="408.0" layoutY="282.0" prefHeight="27.0" prefWidth="90.0" />
+            <Text layoutX="408.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
             <Text fx:id="workLabel" layoutX="41.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Work" />
             <Text fx:id="homeLabel" layoutX="41.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
             <CheckBox fx:id="tosCBox" layoutX="392.0" layoutY="367.0" mnemonicParsing="false" text="I agree to the terms and conditions">

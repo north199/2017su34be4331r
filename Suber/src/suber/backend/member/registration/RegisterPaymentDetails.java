@@ -15,10 +15,16 @@ public class RegisterPaymentDetails extends RegisterUser {
         session = Suber.session;
     }
 
-    public void RegisterPaymentDetails(String accountName, String accountNumber, String bsbNumber, String cardName, String cardCVV, String cardExpiry) throws Exception {
-        String query = "INSERT INTO payment_details VALUES (" + session.getUserId() + ", '" + Crypto.encryptString(accountName) + "', '" + Crypto.encryptString(accountNumber);
-        query += "', " + Crypto.encryptString(bsbNumber) + "', '" + Crypto.encryptString(cardName) + "', '" + Crypto.encryptString(cardCVV) + "', '";
-        query += Crypto.encryptString(cardExpiry) + "');";
-        db.executeQuery(query);
+    public void RegisterPaymentDetails(String accountName, String accountNumber, String bsbNumber, String cardName, String cardCVV, String cardExpiry, String cardNum) throws Exception {
+        String query = "INSERT INTO `" + db.getDatabaseName() + "`.`payment_details` (user_id, account_name, account_num, bsb_num, card_name, card_num, card_cvv, card_expiry)";
+        query += " VALUES ('" + session.getUserId() + "', '" + Crypto.encryptString(accountName) + "', '" + Crypto.encryptString(accountNumber);
+        query += "', '" + Crypto.encryptString(bsbNumber) + "', '" + Crypto.encryptString(cardName) + "', '" + Crypto.encryptString(cardCVV) + "', '";
+        query += Crypto.encryptString(cardExpiry) + "', '" + Crypto.encryptString(cardNum) + "');";
+        try {
+            db.executeUpdate(query);
+            System.out.println("Yeah boy encrypted payment details inserted");
+        } catch (Exception ex){ 
+            System.out.println("failed to register payment deets brah");
+        }
     }
 }

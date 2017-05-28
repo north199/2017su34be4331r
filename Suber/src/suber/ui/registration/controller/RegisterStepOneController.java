@@ -240,9 +240,10 @@ public class RegisterStepOneController implements Initializable {
         // Sets model/in memory to record current details
         registerSession.setFName(firstNameText.getText());
         registerSession.setLName(lastNameText.getText());
-        registerSession.setEmail(emailText.getText());
+        registerSession.setEmail(emailText.getText().toLowerCase());
         registerSession.setPhoneNumber(phoneText.getText());
-        registerSession.setPassword(Crypto.encryptString(passText.getText()));        
+        registerSession.setPassword(passText.getText());        
+        System.out.println(registerSession.getPassword());
         
         // Show next stage in registration process
         try {
