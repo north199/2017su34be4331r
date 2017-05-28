@@ -4,7 +4,7 @@
  *  * AUTHOR: Andrew Snow *
  *  ***********************
  */
-package suber.ui.dashboard.staff.controller;
+package suber.ui.staff.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;

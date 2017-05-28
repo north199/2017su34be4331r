@@ -228,6 +228,20 @@ public class RegisterStepFourController implements Initializable {
         
         if (loginSession.getAccountType().equalsIgnoreCase("ride")) {
             // display dashboard
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../driver/view/DriverLandingPage.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                Stage primaryStage = new Stage();
+                primaryStage.setScene(new Scene(root1, 600, 400));
+                primaryStage.setTitle("Suber - Dashboard");
+                primaryStage.setResizable(false);
+                primaryStage.show();
+                final Node source = (Node) event.getSource();
+                final Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
+            } catch (IOException ex) {
+                System.out.println(ex.toString());
+            }
         } else if (loginSession.getAccountType().equalsIgnoreCase("drive")) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/RegisterVehicle.fxml"));

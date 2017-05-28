@@ -24,18 +24,18 @@
                   <Image url="@../../../../resources/logo.png" />
                </image>
             </ImageView>
-            <TextField layoutX="139.0" layoutY="93.0" prefHeight="27.0" prefWidth="185.0" />
+            <TextField fx:id="dateSeekingText" layoutX="139.0" layoutY="93.0" prefHeight="27.0" prefWidth="185.0" promptText="YYYY-MM-DD" />
             <Text layoutX="139.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Seeking" />
-            <TextField layoutX="139.0" layoutY="219.0" prefHeight="27.0" prefWidth="185.0" />
-            <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
-            <TextField layoutX="139.0" layoutY="157.0" prefHeight="27.0" prefWidth="185.0" />
+            <TextField fx:id="numberOfPeopleText" layoutX="139.0" layoutY="157.0" prefHeight="27.0" prefWidth="185.0" promptText="4" />
             <Text layoutX="139.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Of People" />
-            <TextField layoutX="374.0" layoutY="219.0" prefHeight="27.0" prefWidth="185.0" />
+            <TextField fx:id="startTimeText" layoutX="139.0" layoutY="219.0" prefHeight="27.0" prefWidth="185.0" promptText="YYYY-MM-DD hh:mm:ss" />
+            <Text layoutX="139.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time" />
+            <TextField fx:id="endTimeText" layoutX="374.0" layoutY="219.0" prefHeight="27.0" prefWidth="185.0" promptText="YYYY-MM-DD hh:mm:ss" />
             <Text layoutX="374.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Time" />
-            <TextField layoutX="374.0" layoutY="281.0" prefHeight="27.0" prefWidth="185.0" />
-            <Text layoutX="374.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Postcode" />
-            <TextField layoutX="139.0" layoutY="282.0" prefHeight="27.0" prefWidth="185.0" />
+            <TextField fx:id="startPostcodeText" layoutX="139.0" layoutY="282.0" prefHeight="27.0" prefWidth="185.0" promptText="2000" />
             <Text layoutX="139.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Postcode" />
+            <TextField fx:id="endPostcodeText" layoutX="374.0" layoutY="281.0" prefHeight="27.0" prefWidth="185.0" promptText="2067" />
+            <Text layoutX="374.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Postcode" />
          </children>
       </AnchorPane>
       <Button layoutX="500.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
@@ -64,6 +64,6 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="409.0" layoutY="332.0" mnemonicParsing="false" text="Submit Seek Request" />
+      <Button fx:id="submitButton" layoutX="409.0" layoutY="332.0" mnemonicParsing="false" onAction="#submitButtonAction" text="Submit Seek Request" />
    </children>
 </AnchorPane>

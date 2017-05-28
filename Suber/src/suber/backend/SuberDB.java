@@ -62,6 +62,7 @@ public class SuberDB {
         } catch (Exception e) {
             System.out.println(e);
         }
+        //closeConnection();
     }
     /**
      * Function to get current database

@@ -80,6 +80,22 @@ public class DriverLandingPageController implements Initializable {
             System.out.println(ioex);
         }
     }
+    
+    @FXML
+    private void handleProfileButton(ActionEvent event) {
+        try {
+            Stage stage = (Stage) seekButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("../view/DriverSeek.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            final Node source = (Node) event.getSource();
+            final Stage stage2 = (Stage) source.getScene().getWindow();
+            stage2.close();
+        } catch (IOException ioex) {
+            System.out.println(ioex);
+        }
+    }
 
     private void displayOfferTableData() {
         offerTable.setEditable(true);

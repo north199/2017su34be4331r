@@ -4,7 +4,7 @@
  *  * AUTHOR: Andrew Snow *
  *  ***********************
  */
-package suber.ui.dashboard.staff;
+package suber.ui.staff;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

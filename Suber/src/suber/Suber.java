@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package suber;
 
+import suber.backend.SuberDB;
 import suber.backend.member.registration.RegisterPaymentDetails;
 import suber.backend.member.registration.RegisterUser;
 import suber.backend.member.session.LoginSession;
@@ -17,6 +13,8 @@ import suber.backend.member.session.RegisterUserSession;
  */
 public class Suber {
    
+    public static SuberDB db = new SuberDB();
+    
     public static LoginSession session = new LoginSession();
     public static RegisterUserSession registerSession = new RegisterUserSession();
     

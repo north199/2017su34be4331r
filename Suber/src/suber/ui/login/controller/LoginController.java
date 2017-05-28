@@ -131,7 +131,7 @@ public class LoginController implements Initializable {
     }
     
     private void displayDashboard(ActionEvent event) {
-        if (session.getAccountType().equalsIgnoreCase("Drive")) {
+        if (!session.getAccountType().equalsIgnoreCase("Staff")) {
             try {
                 /**
                  * FXMLLoader fxmlLoader = new
@@ -153,6 +153,19 @@ public class LoginController implements Initializable {
                 stage2.close();
             } catch (IOException ex) {
                 System.out.println(ex.toString());
+            }
+        } else {
+            try {
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("../../staff/view/StaffLandingPage.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                final Node source = (Node) event.getSource();
+                final Stage stage2 = (Stage) source.getScene().getWindow();
+                stage2.close();
+            } catch (IOException ex) {
+                System.out.println(ex);
             }
         }
     }
