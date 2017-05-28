@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <TextField layoutX="100.0" layoutY="125.0" prefHeight="27.0" prefWidth="401.0" />
+            <Text layoutX="100.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
+            <TextField layoutX="100.0" layoutY="187.0" prefHeight="27.0" prefWidth="401.0" />
+            <Text layoutX="100.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <ImageView fitHeight="58.0" fitWidth="92.0" layoutX="254.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Suber%20Logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="514.0" layoutY="332.0" mnemonicParsing="false" text="Login" />
+            <Button layoutX="41.0" layoutY="333.0" mnemonicParsing="false" text="Create Account" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
