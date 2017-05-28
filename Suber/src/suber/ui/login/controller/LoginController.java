@@ -23,8 +23,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import suber.Suber;
 import suber.backend.SuberDB;
 import suber.backend.member.login.Login;
+import suber.backend.member.session.LoginSession;
 import suber.backend.security.Validator;
 
 /**
@@ -34,6 +36,7 @@ import suber.backend.security.Validator;
 public class LoginController implements Initializable {
     SuberDB db;
     Login login;
+    LoginSession session;
     
     @FXML
     private Button createButton;
@@ -118,11 +121,39 @@ public class LoginController implements Initializable {
         
         // try login
         if (login.tryLogin(emailText.getText(), passText.getText())) {
-            displayErrorMessage("Successful login!");
+            displayDashboard(event);
+            
         } else {
             emailLabel.setFill(errorColour.getValue());
             passLabel.setFill(errorColour.getValue());
             displayErrorMessage("Incorrect login!");
+        }
+    }
+    
+    private void displayDashboard(ActionEvent event) {
+        if (session.getAccountType().equalsIgnoreCase("Drive")) {
+            try {
+                /**
+                 * FXMLLoader fxmlLoader = new
+                 * FXMLLoader(getClass().getResource("../../dashboard/driver/view/DriverLandingPage.fxml"));
+                 * Parent root1 = (Parent) fxmlLoader.load(); Stage primaryStage
+                 * = new Stage(); primaryStage.setScene(new Scene(root1, 600,
+                 * 400)); primaryStage.setTitle("Suber - Dashboard");
+                 * primaryStage.setResizable(false);
+                    primaryStage.show();*
+                 */
+
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("../../driver/view/DriverLandingPage.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                final Node source = (Node) event.getSource();
+                final Stage stage2 = (Stage) source.getScene().getWindow();
+                stage2.close();
+            } catch (IOException ex) {
+                System.out.println(ex.toString());
+            }
         }
     }
     
@@ -145,6 +176,7 @@ public class LoginController implements Initializable {
         // TODO
         db = new SuberDB();
         login = new Login();
+        session = Suber.session;
     }
 
 }

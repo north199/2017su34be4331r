@@ -24,22 +24,22 @@
       </ImageView>
       <VBox layoutX="-2.0" layoutY="74.0" prefHeight="331.0" prefWidth="160.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="160.0" text="View Offers" textAlignment="JUSTIFY">
+            <Button fx:id="viewOffersButton" mnemonicParsing="false" onAction="#handleViewOffersButtonAction" prefHeight="90.0" prefWidth="160.0" text="View Offers" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="160.0" text="View Seek" textAlignment="JUSTIFY">
+            <Button fx:id="viewSeekButton" mnemonicParsing="false" onAction="#handleViewSeekButtonAction" prefHeight="90.0" prefWidth="160.0" text="View Seek" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="195.0" text="Manage Corporates" textAlignment="JUSTIFY">
+            <Button fx:id="manageCorporatesButton" mnemonicParsing="false" onAction="#handleManageCorporatesButtonAction" prefHeight="90.0" prefWidth="195.0" text="Manage Corporates" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="195.0" text="Mail">
+            <Button fx:id="mailButton" mnemonicParsing="false" onAction="#handleMailButtonAction" prefHeight="90.0" prefWidth="195.0" text="Mail">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -47,9 +47,9 @@
          </children>
       </VBox>
       <TableView fx:id="offerTable" editable="true" layoutX="190.0" layoutY="73.0" prefHeight="236.0" prefWidth="370.0" />
-      <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="491.0" layoutY="333.0" mnemonicParsing="false" text="Remove" />
-      <Button layoutX="500.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
+      <Button fx:id="editButton" layoutX="191.0" layoutY="333.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="removeButton" layoutX="491.0" layoutY="333.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="myProfileButton" layoutX="500.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleMyProfileButtonAction" text="My Profile" />
       <Text fx:id="loginLabel" layoutX="432.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
          <font>
             <Font size="8.0" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="suber.ui.dashboard.rider.model.RiderLandingPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="suber.ui.dashboard.rider.controller.RiderLandingPageController">
    <children>
       <Text layoutX="205.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Suber" textAlignment="CENTER">
          <font>
@@ -20,51 +20,39 @@
       </Text>
       <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Suber%20Logo.png" />
+            <Image url="@../../../../resources/logo.png" />
          </image>
       </ImageView>
       <Button layoutX="501.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
       <VBox layoutX="-1.0" layoutY="74.0" prefHeight="325.0" prefWidth="96.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Seek Ride" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Seek Ride" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Adjustments" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Payments">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Payments">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Help">
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Help">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
          </children>
       </VBox>
-      <Text layoutX="433.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
+      <Text fx:id="loginLabel" layoutX="433.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
          <font>
             <Font size="8.0" />
          </font>
       </Text>
-      <Button layoutX="138.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="252.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
-      <Button layoutX="377.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
+      <Button layoutX="139.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="491.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
-      <TableView layoutX="135.0" layoutY="74.0" prefHeight="232.0" prefWidth="185.0">
+      <TableView layoutX="138.0" layoutY="74.0" prefHeight="237.0" prefWidth="421.0">
          <columns>
-            <TableColumn prefWidth="185.0" text="Offer" />
-         </columns>
-      </TableView>
-      <TableView layoutX="374.0" layoutY="74.0" prefHeight="232.0" prefWidth="185.0">
-         <columns>
-            <TableColumn prefWidth="185.0" text="Seek" />
+            <TableColumn prefWidth="421.0" text="Seek" />
          </columns>
       </TableView>
    </children>

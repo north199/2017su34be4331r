@@ -4,7 +4,7 @@
  *  * AUTHOR: Andrew Snow *
  *  ***********************
  */
-package suber.ui.dashboard.rider.controller;
+package suber.ui.driver.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,11 +20,11 @@ import suber.backend.member.session.LoginSession;
  *
  * @author Andrew
  */
-public class RiderLandingPageController implements Initializable {
-
+public class DriverSeekController implements Initializable {
+    
     SuberDB db;
     LoginSession session;
-
+    
     @FXML
     private Text loginLabel;
     
@@ -37,7 +37,6 @@ public class RiderLandingPageController implements Initializable {
         db = new SuberDB();
         session = Suber.session;
         loginLabel.setText("Logged in as:\n" + session.getEmail());
-        
-    }
-
+    }    
+    
 }
