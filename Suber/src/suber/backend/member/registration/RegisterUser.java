@@ -6,34 +6,54 @@
  */
 package suber.backend.member.registration;
 
+import java.sql.ResultSet;
+import java.util.Date;
+import suber.Suber;
 import suber.backend.SuberDB;
-import suber.backend.security.Crypto;
+import suber.backend.member.session.RegisterUserSession;
 
 /**
  * This class handles all registration
+ *
  * @author Andrew
  */
 public class RegisterUser {
-    
-    SuberDB db = new SuberDB();
-    
-    
+
+    SuberDB db;
+    RegisterUserSession session;
+
     public RegisterUser() {
-        
+        db = new SuberDB();
+        session = Suber.registerSession;
     }
-    
-    public void RegisterNewUser(String firstName, String lastName, int streetNum, String streetAddress, String suburb, 
-            String postCode, String phoneNum, String email, String password) throws Exception {
+
+    //Runs a SQL Query to insert a new record into the user_list table
+    public void RegisterNewUser(String firstName, String lastName, int homeStreetNum, String homeStreetAddress, String homeSuburb,
+            int homePostCode, int workStreetNum, String workStreetAddress, String workSuburb, int workPostCode, String phoneNum,
+            String email, String password, String gender, Date dateOfBirth) throws Exception {
         // Assumes input has been sanitized and validated
-        // Check email first if it already exists!
         /**
          * INSERT INTO table (cols) VALUES (values);
          */
+        session.setEmail(email);
         String query = "INSERT INTO " + db.getDatabaseName() + ".user_list ";
-        query += "(fname, lname, address_number, address_street, address_suburb, address_postcode, phone_number, ";
-        query += "email, password, account_name, account_num, bsb_num, card_name, card_num, card_cvv, card_expiry) ";
-        query += "VALUES (" + firstName + ", " + lastName + ", " + streetNum + ", " + streetAddress + ", " + suburb;
-        query += ", " + postCode + ", " + phoneNum + ", " + email + ", " + Crypto.encryptString(password) + ");";
+        query += "(fname, lname, home_address_number, home_address_street, home_address_suburb, home_address_postcode, work_address_number, work_address_street, ";
+        query += "work_address_suburb, work_address_postcode, phone_number, email, password) ";
+        query += "VALUES ('" + firstName + "', '" + lastName + "', " + homeStreetNum + ", '" + homeStreetAddress + "', '" + homeSuburb + "'";
+        query += ", " + homePostCode + ", " + workStreetNum + ", '" + workStreetAddress + "', '" + workSuburb + "', " + workPostCode + ", ";
+        query += phoneNum + "', '" + email + "', '" + password + "', " + gender + "', '" + dateOfBirth + "');";
         db.executeUpdate(query);
+        String returnID = "SELECT user_id FROM user_list WHERE email = '" + email + "';";
+        
+        try {
+            ResultSet results = db.executeQuery(returnID);
+            while(results.next()) {
+                String sessionID = results.getString(1);
+                session.setUserId(Integer.parseInt(sessionID));
+                System.out.println(sessionID);
+            }
+        } catch (Exception ex) {
+            System.out.println("failed to register user");
+        }
     }
 }

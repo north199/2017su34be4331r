@@ -24,7 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import suber.Suber;
 import suber.backend.SuberDB;
+import suber.backend.member.session.RegisterUserSession;
+import suber.backend.security.Crypto;
 import suber.backend.security.Validator;
 
 /**
@@ -35,6 +38,7 @@ import suber.backend.security.Validator;
 public class RegisterStepOneController implements Initializable {
 
     SuberDB db;
+    RegisterUserSession registerSession;
 
     @FXML
     private Button nextButton;
@@ -109,7 +113,7 @@ public class RegisterStepOneController implements Initializable {
      * @param event
      */
     @FXML
-    private void handleNextButtonAction(ActionEvent event) {
+    private void handleNextButtonAction(ActionEvent event) throws Exception {
         // Declare paint compatible colour codes for validation
         final ColorPicker errorColour = new ColorPicker();
         errorColour.setValue(Color.RED);
@@ -134,6 +138,7 @@ public class RegisterStepOneController implements Initializable {
             passLabel.setFill(errorColour.getValue());
             confirmPassLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please fill in all fields.");
+            return;
         }
 
         // Validate confirmed and normal passwords match
@@ -141,6 +146,7 @@ public class RegisterStepOneController implements Initializable {
             passLabel.setFill(errorColour.getValue());
             confirmPassLabel.setFill(errorColour.getValue());
             displayErrorMessage("Your passwords do not match.");
+            return;
         }
 
         // Ensure no numbers in names
@@ -148,12 +154,14 @@ public class RegisterStepOneController implements Initializable {
             firstNameLabel.setFill(errorColour.getValue());
             lastNameLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please enter your name correctly.");
+            return;
         }
 
         // Email validation
         if (!Validator.isValidEmail(emailText.getText())) {
             emailLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please enter a valid email.");
+            return;
         }
 
         // phone number validation
@@ -161,16 +169,19 @@ public class RegisterStepOneController implements Initializable {
             phoneLabel.setFill(errorColour.getValue());
             phoneText.setText("");
             displayErrorMessage("Please enter a valid Australian mobile number.");
+            return;
         }
         if (!Validator.containsDigits(phoneText.getText())) {
             phoneLabel.setFill(errorColour.getValue());
             phoneText.setText("");
             displayErrorMessage("Please enter a valid Australian mobile number.");
+            return;
         }
         if (!phoneText.getText().startsWith("04")) {
             phoneLabel.setFill(errorColour.getValue());
             phoneText.setText("");
             displayErrorMessage("Please enter a valid Australian mobile number.");
+            return;
         }
 
         // purge for sql injection
@@ -178,29 +189,33 @@ public class RegisterStepOneController implements Initializable {
             firstNameLabel.setFill(errorColour.getValue());
             firstNameText.setText("");
             displayErrorMessage("Please enter your first name correctly.");
+            return;
         }
         if (Validator.isMaliciousText(lastNameText.getText())) {
             lastNameLabel.setFill(errorColour.getValue());
             lastNameText.setText("");
             displayErrorMessage("Please enter your last name correctly.");
+            return;
         }
         if (Validator.isMaliciousText(emailText.getText())) {
             emailLabel.setFill(errorColour.getValue());
             emailText.setText("");
             displayErrorMessage("Please enter your email correctly.");
+            return;
         }
         if (Validator.isMaliciousText(phoneText.getText())) {
             phoneLabel.setFill(errorColour.getValue());
             phoneText.setText("");
             displayErrorMessage("Please enter your mobile number correctly.");
+            return;
         }
 
-        // Make sure password is strong (8 characters of both digits and letters)
+        // Make sure password is strong (7 characters of both digits and letters)
         if (!Validator.isStrongPassword(passText.getText())) {
             passLabel.setFill(errorColour.getValue());
             confirmPassLabel.setFill(errorColour.getValue());
             displayErrorMessage("Please enter a strong password with letters and numbers.");
-
+            return;
         }
 
         // ensure email does not already exits
@@ -213,15 +228,21 @@ public class RegisterStepOneController implements Initializable {
             String retrievedEmail = results.getString(1);
             if (retrievedEmail.equals(emailText.getText())) {
                 emailLabel.setFill(errorColour.getValue());
-                statusLabel.setText("The email already has an account.");
+                displayErrorMessage("The email already has an account.");
+                return;
             }
         } catch (Exception e) {
             System.out.println(e.toString());
+            System.out.println("Email is not duplicate.");
         }
 
         // Assume data is mostly clean and ready for database here
         // Sets model/in memory to record current details
-        
+        registerSession.setFName(firstNameText.getText());
+        registerSession.setLName(lastNameText.getText());
+        registerSession.setEmail(emailText.getText());
+        registerSession.setPhoneNumber(phoneText.getText());
+        registerSession.setPassword(Crypto.encryptString(passText.getText()));        
         
         // Show next stage in registration process
         try {
@@ -257,6 +278,8 @@ public class RegisterStepOneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         db = new SuberDB();
+        registerSession = Suber.registerSession;
+        
     }
 
 }

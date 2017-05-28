@@ -1,12 +1,12 @@
 package suber.backend.member.session;
 
-public class Session {
+public class LoginSession {
     private String userId;
     private String email;
     private String password;
     private String AccountType;
 
-    public Session() {
+    public LoginSession() {
     }
 
     public String getUserId() {

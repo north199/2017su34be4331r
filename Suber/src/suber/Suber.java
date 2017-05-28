@@ -5,9 +5,9 @@
  */
 package suber;
 
-import javafx.stage.Stage;
-import suber.backend.member.session.Session;
+import suber.backend.member.session.LoginSession;
 import suber.ui.login.LoginLauncher;
+import suber.backend.member.session.RegisterUserSession;
 
 /**
  *
@@ -15,10 +15,12 @@ import suber.ui.login.LoginLauncher;
  */
 public class Suber {
    
-    public static Session session = new Session();
+    public static LoginSession session = new LoginSession();
+    public static RegisterUserSession registerSession = new RegisterUserSession();
     
     public static void main(String[] args) throws Exception {
-        
+        LoginLauncher.main(args);
     }
     
+  
 }

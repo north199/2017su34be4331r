@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="suber.ui.registration.controller.RegisterStepFourController">
+   <children>
+      <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../resources/logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Details" textAlignment="CENTER" wrappingWidth="400.0000065565109">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="bankName" layoutX="100.0" layoutY="94.0" prefHeight="27.0" prefWidth="400.0" />
+      <Text layoutX="100.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Name" />
+      <TextField fx:id="bankBSB" layoutX="100.0" layoutY="157.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text layoutX="100.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BSB" />
+      <TextField fx:id="bankAcc" layoutX="319.0" layoutY="156.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text layoutX="319.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
+      <TextField fx:id="cardName" layoutX="100.0" layoutY="219.0" prefHeight="27.0" prefWidth="180.0" />
+      <Text layoutX="100.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cardholder Name" />
+      <TextField fx:id="cardExpiry" layoutX="319.0" layoutY="220.0" prefHeight="27.0" prefWidth="180.0" promptText="MM-YY" />
+      <Text layoutX="319.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Date" />
+      <TextField fx:id="cardNum" layoutX="100.0" layoutY="281.0" prefHeight="27.0" prefWidth="280.0" />
+      <Text layoutX="100.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number" />
+      <TextField fx:id="cardCVV" layoutX="409.0" layoutY="280.0" prefHeight="27.0" prefWidth="90.0" />
+      <Text layoutX="409.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCV" />
+      <Button fx:id="nextButton" layoutX="504.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Finish" />
+      <Button fx:id="backButton" layoutX="41.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
+      <Text fx:id="statusLabel" layoutX="99.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{{status}}" visible="false" />
+      <Text layoutX="50.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank" />
+      <Text layoutX="51.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card" />
+      <Text layoutX="191.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All details are stored with military grade encryption.">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

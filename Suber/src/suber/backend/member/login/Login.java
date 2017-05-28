@@ -9,7 +9,7 @@ package suber.backend.member.login;
 import java.sql.ResultSet;
 import suber.Suber;
 import suber.backend.SuberDB;
-import suber.backend.member.session.Session;
+import suber.backend.member.session.LoginSession;
 import suber.backend.security.Crypto;
 
 /**
@@ -19,7 +19,7 @@ import suber.backend.security.Crypto;
 public class Login {
 
     SuberDB db;
-    Session session;
+    LoginSession session;
 
     public Login() {
         db = new SuberDB();
@@ -37,7 +37,7 @@ public class Login {
         email = email.toLowerCase();
         // If true check accounttype based on 
         String query = "SELECT `user_ID`, `email`, `password` FROM " + db.getDatabaseName() + ".user_list "
-                + "WHERE email = \"" + email + "\" "
+                + "WHERE email = \"" + email.toLowerCase() + "\" "
                 + "AND password = \"" + Crypto.encryptString(password) + "\"";
         
         try {
@@ -79,19 +79,21 @@ public class Login {
                 }
             }
         } catch (Exception notStaff) {
-            try {
-                ResultSet results = db.executeQuery(checkDriver);
-                while (results.next()) {
-                    String id = results.getString(1);
-                    if (id != null ) {
-                        session.setAccountType("Driver");
-                        System.out.println("Driver");
-                    }
+            
+        }
+        
+        try {
+            ResultSet results = db.executeQuery(checkDriver);
+            while (results.next()) {
+                String id = results.getString(1);
+                if (id != null) {
+                    session.setAccountType("Driver");
+                    System.out.println("Driver");
                 }
-            } catch (Exception notDriver) {
-                session.setAccountType("Rider");
-                System.out.println("Rider");
             }
+        } catch (Exception notDriver) {
+            session.setAccountType("Rider");
+            System.out.println("Rider");
         }
     }
 

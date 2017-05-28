@@ -6,6 +6,8 @@
  */
 package suber.backend.security;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
 
 /**
@@ -42,8 +44,8 @@ public class Validator {
         if (password.length() >= 8) {
             for (int i = 0; i < password.length(); i++) {
                 char x = password.charAt(i);
-                hasLetter = Character.isLetter(x);
-                hasDigit = Character.isDigit(x);
+                if (Character.isLetter(x)) hasLetter = true;
+                if (Character.isDigit(x)) hasDigit = true;
                 if (hasLetter && hasDigit) {
                     break;
                 }
@@ -71,5 +73,20 @@ public class Validator {
     public static boolean containsDigits(String text) {
         Pattern noNums = Pattern.compile(".*\\d+.*");
         return noNums.matcher(text).matches();
+    }
+   
+    /**
+     * This function checks whether input is a date
+     * @param input Date as a string
+     * @return boolean result
+     */
+    public static boolean isValidDate(String input) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+        try {
+            format.parse(input);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }
