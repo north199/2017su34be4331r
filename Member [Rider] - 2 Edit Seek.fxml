@@ -20,30 +20,6 @@
                   <Font size="8.0" />
                </font>
             </Text>
-            <VBox layoutX="-2.0" layoutY="73.0" prefHeight="328.0" prefWidth="102.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Seek Ride" textAlignment="JUSTIFY">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Adjustments" textAlignment="JUSTIFY">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Payments">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="102.0" text="Help">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
             <Button layoutX="138.0" layoutY="333.0" mnemonicParsing="false" text="Back" />
             <Button layoutX="496.0" layoutY="332.0" mnemonicParsing="false" text="Update" />
          </children>
@@ -70,5 +46,24 @@
       <Text layoutX="374.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people" />
       <TextField layoutX="374.0" layoutY="219.0" prefHeight="27.0" prefWidth="185.0" />
       <Text layoutX="374.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desination postcode" />
+      <VBox layoutX="-2.0" layoutY="73.0" prefHeight="328.0" prefWidth="102.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Seek Ride" textAlignment="JUSTIFY">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Payments">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="102.0" text="Help">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

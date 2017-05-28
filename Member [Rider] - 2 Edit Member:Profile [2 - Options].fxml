@@ -40,22 +40,17 @@
       </Text>
       <VBox layoutX="-2.0" layoutY="73.0" prefHeight="328.0" prefWidth="102.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Seek Ride" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Seek Ride" textAlignment="JUSTIFY">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Adjustments" textAlignment="JUSTIFY">
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="250.0" text="Payments">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Payments">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="102.0" text="Help">
+            <Button mnemonicParsing="false" prefHeight="110.0" prefWidth="102.0" text="Help">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

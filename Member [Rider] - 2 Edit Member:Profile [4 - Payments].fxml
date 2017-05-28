@@ -24,21 +24,32 @@
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help" textAlignment="CENTER" wrappingWidth="400.0000065565109">
+            <Text layoutX="99.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile" textAlignment="CENTER" wrappingWidth="400.0000065565109">
                <font>
                   <Font size="22.0" />
                </font>
             </Text>
-            <Button layoutX="509.0" layoutY="332.0" mnemonicParsing="false" text="Send" />
-            <TextField layoutX="140.0" layoutY="93.0" prefHeight="27.0" prefWidth="400.0" />
-            <Text layoutX="140.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" />
-            <TextField layoutX="140.0" layoutY="156.0" prefHeight="151.0" prefWidth="400.0" />
-            <Text layoutX="140.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" />
             <ImageView fitHeight="39.0" fitWidth="65.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Suber%20Logo.png" />
                </image>
             </ImageView>
+            <Button layoutX="496.0" layoutY="332.0" mnemonicParsing="false" text="Update" />
+            <TextField layoutX="138.0" layoutY="93.0" prefHeight="27.0" prefWidth="421.0" />
+            <Text layoutX="138.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank Account Name" />
+            <TextField layoutX="138.0" layoutY="156.0" prefHeight="27.0" prefWidth="185.0" />
+            <Text layoutX="138.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BSB" />
+            <TextField layoutX="138.0" layoutY="218.0" prefHeight="27.0" prefWidth="185.0" />
+            <Text layoutX="138.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Name" />
+            <TextField layoutX="138.0" layoutY="280.0" prefHeight="27.0" prefWidth="280.0" />
+            <Text layoutX="138.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Number" />
+            <Button layoutX="139.0" layoutY="331.0" mnemonicParsing="false" text="Back" />
+            <TextField layoutX="469.0" layoutY="281.0" prefHeight="27.0" prefWidth="90.0" />
+            <Text layoutX="469.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CCV" />
+            <TextField layoutX="374.0" layoutY="155.0" prefHeight="27.0" prefWidth="185.0" />
+            <Text layoutX="374.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number" />
+            <TextField layoutX="374.0" layoutY="219.0" prefHeight="27.0" prefWidth="185.0" />
+            <Text layoutX="374.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiry Date" />
          </children>
       </AnchorPane>
       <VBox layoutX="-2.0" layoutY="73.0" prefHeight="328.0" prefWidth="102.0">
