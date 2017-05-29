@@ -1,11 +1,17 @@
-////////////////////////////////////////////////////////////////////////////
-//DESTINATIONTIME CLASS - contains information on desinationTime
-//contains setters/getters
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package assignment1carseek;
 
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ *
+ * @author adimt460a
+ */
 public class DestinationTime {
 
     private int year;
@@ -14,14 +20,14 @@ public class DestinationTime {
     private int hour;
     private int minute;
 
-    public DestinationTime(int year, int month, int day, int hour, int minute) {
+    public DestinationTime(int year, int month, int day, int hour, int minute){
         this.year = year;
         this.month = month;
         this.day = day;
         this.hour = hour;
         this.minute = minute;
     }
-
+    
     public int getYear() {
         return year;
     }
@@ -62,7 +68,7 @@ public class DestinationTime {
         this.minute = minute;
     }
 
-    public Date getDate() {
+    public Date getDate(){
         Date newDate = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setLenient(false);
@@ -77,10 +83,10 @@ public class DestinationTime {
             cal.set(Calendar.MILLISECOND, 0);
             return cal.getTime();
         } catch (Exception invalidDate) {
-
+            
             System.out.println("Error: Invalid value for " + invalidDate.getMessage());
         }
         return null;
     }
-
+    
 }

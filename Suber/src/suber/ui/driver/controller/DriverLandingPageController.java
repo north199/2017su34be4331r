@@ -55,7 +55,10 @@ public class DriverLandingPageController implements Initializable {
 
     @FXML
     private Button seekButton;
-
+    
+    @FXML
+    private Button offerButton;
+    
     @FXML
     private TableView offerTable;
 
@@ -64,12 +67,66 @@ public class DriverLandingPageController implements Initializable {
 
     @FXML
     private Text loginLabel;
+    
+    @FXML
+    private Button helpButton;
+    
+    @FXML
+    private void handleHelpButton(ActionEvent event) {
+        try {
+            Stage stage = (Stage) seekButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("../view/DriverHelp.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            final Node source = (Node) event.getSource();
+            final Stage stage2 = (Stage) source.getScene().getWindow();
+            stage2.close();
+        } catch (IOException ioex) {
+            System.out.println(ioex);
+        }
+    }
+    
+    @FXML
+    private Button paymentButton;
 
+    @FXML
+    private void handlePaymentButton(ActionEvent event) {
+        try {
+            Stage stage = (Stage) seekButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("../view/DriverPayments.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            final Node source = (Node) event.getSource();
+            final Stage stage2 = (Stage) source.getScene().getWindow();
+            stage2.close();
+        } catch (IOException ioex) {
+            System.out.println(ioex);
+        }
+    }
+    
     @FXML
     private void handleSeekButton(ActionEvent event) {
         try {
             Stage stage = (Stage) seekButton.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("../view/DriverSeek.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            final Node source = (Node) event.getSource();
+            final Stage stage2 = (Stage) source.getScene().getWindow();
+            stage2.close();
+        } catch (IOException ioex) {
+            System.out.println(ioex);
+        }
+    }
+    
+    @FXML
+    private void handleOfferButton(ActionEvent event) {
+        try {
+            Stage stage = (Stage) seekButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("../view/DriverOffer.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -182,6 +239,12 @@ public class DriverLandingPageController implements Initializable {
         db = new SuberDB();
         session = Suber.session;
         loginLabel.setText("Logged in as:\n" + session.getEmail());
+        if (!session.getAccountType().equalsIgnoreCase("Drive")) {
+            offerButton.setDisable(true);
+            editOfferButton.setDisable(true);
+            removeOfferButton.setDisable(true);
+        }
+        
         displayOfferTableData();
         displaySeekTableData();
     }

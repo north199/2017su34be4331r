@@ -22,14 +22,14 @@
              <Image url="@../../../../resources/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="501.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
+      <Button layoutX="501.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" visible="false" />
       <Button fx:id="editOfferButton" layoutX="138.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
       <Button fx:id="removeOfferButton" layoutX="252.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
       <Button fx:id="editSeekButton" layoutX="377.0" layoutY="332.0" mnemonicParsing="false" text="Edit" />
       <Button fx:id="removeSeekButton" layoutX="491.0" layoutY="332.0" mnemonicParsing="false" text="Remove" />
       <TableView fx:id="offerTable" layoutX="135.0" layoutY="74.0" prefHeight="232.0" prefWidth="185.0" />
       <TableView fx:id="seekTable" layoutX="374.0" layoutY="74.0" prefHeight="232.0" prefWidth="185.0" />
-      <Text fx:id="loginLabel" layoutX="433.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
+      <Text fx:id="loginLabel" layoutX="433.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="79.99999523162842">
          <font>
             <Font size="8.0" />
          </font>
@@ -41,13 +41,13 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Offer Ride" textAlignment="JUSTIFY" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Payments">
+            <Button fx:id="offerButton" mnemonicParsing="false" onAction="#handleOfferButton" prefHeight="100.0" prefWidth="250.0" text="Offer Ride" textAlignment="JUSTIFY" />
+            <Button fx:id="paymentButton" mnemonicParsing="false" onAction="#handlePaymentButton" prefHeight="100.0" prefWidth="250.0" text="Payments">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Help">
+            <Button fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" prefHeight="100.0" prefWidth="250.0" text="Help">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

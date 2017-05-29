@@ -38,7 +38,7 @@
             <Text layoutX="374.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Postcode" />
          </children>
       </AnchorPane>
-      <Button layoutX="500.0" layoutY="22.0" mnemonicParsing="false" text="My Profile" />
+      <Button fx:id="profileButton" layoutX="500.0" layoutY="22.0" mnemonicParsing="false" onAction="#profileButtonAction" text="My Profile" />
       <Text fx:id="loginLabel" layoutX="432.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as: {{Name}}" wrappingWidth="56.46044921875">
          <font>
             <Font size="8.0" />
@@ -51,8 +51,8 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Offer Ride" textAlignment="JUSTIFY" />
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="250.0" text="Payments">
+            <Button fx:id="offerButton" mnemonicParsing="false" onAction="#handleOfferButton" prefHeight="100.0" prefWidth="250.0" text="Offer Ride" textAlignment="JUSTIFY" />
+            <Button fx:id="paymentButton" mnemonicParsing="false" onAction="#handlePaymentButton" prefHeight="100.0" prefWidth="250.0" text="Payments">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

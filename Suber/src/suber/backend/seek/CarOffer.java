@@ -1,11 +1,16 @@
-////////////////////////////////////////////////////////////////////////////////
-//CAROFFER CLASS - used for storing information for CarOffer////////////////////
-//contains setters/getters
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package assignment1carseek;
 
 import java.util.Date;
 
+/**
+ *
+ * @author adimt460a
+ */
 public class CarOffer {
 
     int carOfferID;
@@ -22,7 +27,7 @@ public class CarOffer {
     public CarOffer(int carOfferID, Double quota, Double price, String currentPostCode, String startingPostCode, String destinationPostCode, String travelTime, Date pickupTime, Date dropOffTime, Car car) {
         this.carOfferID = carOfferID;
         this.quota = quota;
-
+        
         this.price = price;
         this.currentPostCode = currentPostCode;
         this.startingPostCode = startingPostCode;
@@ -33,14 +38,17 @@ public class CarOffer {
         this.car = car;
     }
 
-    public int getCarOfferID() {
+    public int getCarOfferID()
+    {
         return carOfferID;
     }
-
-    public void setCarOfferID(int carOfferID) {
+    
+    public void setCarOfferID(int carOfferID)
+    {
         this.carOfferID = carOfferID;
     }
-
+    
+    
     public String getCurrentPostCode() {
         return currentPostCode;
     }
